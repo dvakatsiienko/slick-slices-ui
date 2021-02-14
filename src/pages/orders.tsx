@@ -4,13 +4,13 @@ import React from 'react';
 /* Components */
 import { Nav } from '../components';
 
-const IndexPage = () => {
+const OrdersPage = () => {
     return (
         <>
             <Nav />
-            <h1>Hello, Another World! 👽</h1>
+            <h1>Orders Page...</h1>
         </>
     );
 };
 
-export default IndexPage;
+export default OrdersPage;

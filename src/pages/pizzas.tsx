@@ -4,13 +4,13 @@ import React from 'react';
 /* Components */
 import { Nav } from '../components';
 
-const IndexPage = () => {
+const PizzasPage = () => {
     return (
         <>
             <Nav />
-            <h1>Hello, Another World! 👽</h1>
+            <h1>Pizzas Page...</h1>
         </>
     );
 };
 
-export default IndexPage;
+export default PizzasPage;
