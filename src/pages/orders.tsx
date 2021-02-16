@@ -2,12 +2,11 @@
 import React from 'react';
 
 /* Components */
-import { Nav } from '../components';
+import { Layout } from '../components';
 
 const OrdersPage = () => {
     return (
         <>
-            <Nav />
             <h1>Orders Page...</h1>
         </>
     );

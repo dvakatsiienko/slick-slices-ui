@@ -2,12 +2,11 @@
 import React from 'react';
 
 /* Components */
-import { Nav } from '../components';
+import { Layout } from '@/components';
 
 const IndexPage = () => {
     return (
         <>
-            <Nav />
             <h1>Hello, Another World! 👽</h1>
         </>
     );
