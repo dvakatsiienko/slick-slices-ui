@@ -4,12 +4,12 @@ import React from 'react';
 /* Components */
 import { Layout } from '../components';
 
-const OrdersPage = () => {
+const OrderPage = () => {
     return (
         <>
-            <h1>Orders Page...</h1>
+            <h1>Order Page...</h1>
         </>
     );
 };
 
-export default OrdersPage;
+export default OrderPage;
