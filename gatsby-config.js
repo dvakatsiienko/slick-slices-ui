@@ -1,7 +1,15 @@
-const path = require('path')
+// const path = require('path')
+/* Core */
+import path  from 'path';
 
-module.exports = {
+export default {
+    siteMetadata: {
+        title:       'Slicks Slices',
+        siteUrl:     'https://gatsby.pizza',
+        description: 'The best pizza in Hamilton!',
+    },
     plugins: [
+        'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-plugin-root-import',
             options: {

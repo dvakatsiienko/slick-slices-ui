@@ -1,9 +1,6 @@
 /* Core */
 import React from 'react';
 
-/* Components */
-import { Layout } from '@/components';
-
 const SlicemasterPage = () => {
     return (
         <>
