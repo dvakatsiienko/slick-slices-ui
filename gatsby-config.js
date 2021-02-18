@@ -1,8 +1,14 @@
-// const path = require('path')
 /* Core */
-import path  from 'path';
+const path = require( 'path');
+const dotenv = require('dotenv');
 
-export default {
+dotenv.config({
+    path: '.env',
+})
+
+console.log(process.env.GATSBY_SANITY_ENV);
+
+module.exports = {
     siteMetadata: {
         title:       'Slicks Slices',
         siteUrl:     'https://gatsby.pizza',
@@ -10,6 +16,15 @@ export default {
     },
     plugins: [
         'gatsby-plugin-styled-components',
+        // {
+        //     resolve: 'gatsby-source-sanity',
+        //     options: {
+        //         projectId: 'zymjgahi',
+        //         dataset:   'production',
+        //         watchMode: true,
+        //         token:     process.env.GATSBY_SANITY_ENV,
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-root-import',
             options: {
