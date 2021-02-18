@@ -1,12 +1,6 @@
 /* Core */
 const path = require( 'path');
-const dotenv = require('dotenv');
-
-dotenv.config({
-    path: '.env',
-})
-
-console.log(process.env.GATSBY_SANITY_ENV);
+require('dotenv');
 
 module.exports = {
     siteMetadata: {
@@ -16,18 +10,19 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-styled-components',
-        // {
-        //     resolve: 'gatsby-source-sanity',
-        //     options: {
-        //         projectId: 'zymjgahi',
-        //         dataset:   'production',
-        //         watchMode: true,
-        //         token:     process.env.GATSBY_SANITY_ENV,
-        //     },
-        // },
+        {
+            resolve: 'gatsby-source-sanity',
+            options: {
+                projectId: 'zymjgahi',
+                dataset:   'production',
+                watchMode: true,
+                token:     process.env.SANITY_TOKEN,
+            },
+        },
         {
             resolve: 'gatsby-plugin-root-import',
             options: {
+                '@/':           path.join(__dirname, 'src'),
                 '@/components': path.join(__dirname, 'src/components'),
                 // "layouts": path.join(__dirname, "src/layouts"),
                 // "templates": path.join(__dirname, "src/templates"),
