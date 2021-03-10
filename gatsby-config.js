@@ -1,5 +1,5 @@
 /* Core */
-const path = require( 'path');
+const path = require('path');
 require('dotenv');
 
 module.exports = {
@@ -10,6 +10,15 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-styled-components',
+        {
+            resolve: 'gatsby-plugin-typegen',
+            options: {
+                emitSchema: {
+                    'src/__generated__/gatsby-schema.graphql': true,
+                },
+            },
+        },
+        // 'gatsby-plugin-graphql-codegen',
         {
             resolve: 'gatsby-source-sanity',
             options: {
@@ -33,4 +42,4 @@ module.exports = {
             },
         },
     ],
-}
+};

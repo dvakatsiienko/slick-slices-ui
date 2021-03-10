@@ -2,10 +2,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+/* Instruments */
+// import * as gql from '../../graphql-types';
+
 export const PizzaList: React.FC<PizzaListProps> = props => {
     console.log(props);
 
-    const pizzaListJSX = props.pizzas.map(pizza => {
+    const pizzaListJSX = props.pizzas.allSanityPizza.nodes.map(pizza => {
         return <Pizza key = { pizza.id } pizza = { pizza } />;
     });
 
@@ -13,7 +16,10 @@ export const PizzaList: React.FC<PizzaListProps> = props => {
 };
 
 /* Types */
-interface PizzaListProps {}
+interface PizzaListProps {
+    // pizzas: gql.SanityPizza[];
+    pizzas: GatsbyTypes.allSanityPizzaQuery;
+}
 
 export const Pizza: React.FC<PizzaProps> = props => {
     const toppingsJSX = props.pizza.toppings
@@ -35,4 +41,6 @@ export const Pizza: React.FC<PizzaProps> = props => {
 };
 
 /* Types */
-interface PizzaProps {}
+interface PizzaProps {
+    pizza: GatsbyTypes.allSanityPizzaQuery;
+}

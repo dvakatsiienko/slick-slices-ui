@@ -1,0 +1,26 @@
+# query allSanityPizza {
+# allSanityPizza {
+#     nodes {
+#         ...testFragment
+#     }
+# }
+# }
+
+fragment testFragment on SanityPizza {
+    id
+    name
+    slug {
+        current
+    }
+    toppings {
+        id
+        name
+    }
+    image {
+        asset {
+            fluid(maxWidth: 400) {
+                ...GatsbySanityImageFluid
+            }
+        }
+    }
+}

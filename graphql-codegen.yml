@@ -1,0 +1,11 @@
+schema: 'http://localhost:8000/___graphql'
+documents:
+    'src/graphql/**/*.gql'
+    # - ./src/**/*.{ts,tsx}
+    # - ./node_modules/gatsby*/!(node_modules)/**/*.js
+
+generates:
+    src/graphql/index.tsx:
+        plugins:
+            - typescript
+            - typescript-operations
