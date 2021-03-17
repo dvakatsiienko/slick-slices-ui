@@ -1,23 +1,27 @@
 /* Core */
 const path = require('path');
-require('dotenv');
+const dotenv = require('dotenv');
+
+dotenv.config({ path: './.env' });
 
 module.exports = {
     siteMetadata: {
         title:       'Slicks Slices',
         siteUrl:     'https://gatsby.pizza',
         description: 'The best pizza in Hamilton!',
+        twitter:     '@slicksSlices',
     },
     plugins: [
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
-        {
-            resolve: 'gatsby-plugin-typegen',
-            options: {
-                emitSchema: {
-                    'src/__generated__/gatsby-schema.graphql': true,
-                },
-            },
-        },
+        // {
+        //     resolve: 'gatsby-plugin-typegen',
+        //     options: {
+        //         emitSchema: {
+        //             'src/__generated__/gatsby-schema.graphql': true,
+        //         },
+        //     },
+        // },
         // 'gatsby-plugin-graphql-codegen',
         {
             resolve: 'gatsby-source-sanity',

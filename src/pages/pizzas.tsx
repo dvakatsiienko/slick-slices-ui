@@ -1,24 +1,20 @@
 /* Core */
-import React from 'react';
+import React                  from 'react';
 import { graphql, PageProps } from 'gatsby';
 
 /* Components */
-import { PizzaList } from '@/components';
-
-/* Instruments */
-// import * as gql from '../../graphql-types';
-// import * as gql from '../__generated__/gatsby-types';
-// import * as test from '../graphql/pizzas.gql';
-// console.log(test);
+import { PizzaList, ToppingsFilter, SEO } from '../components';
 
 const PizzasPage: React.FC<
     PageProps<GatsbyTypes.allSanityPizzaQuery>
 > = props => {
-    console.log(props.data);
+    const { topping } = props.pageContext;
 
     return (
         <>
-            <h1>Pizzas Page...</h1>
+            <SEO title = { topping ? `Pizzas with ${topping}` : 'All Pizzas' } />
+
+            <ToppingsFilter activeTopping = { topping } />
 
             <PizzaList pizzas = { props.data } />
         </>
@@ -26,8 +22,12 @@ const PizzasPage: React.FC<
 };
 
 export const query = graphql`
-    query allSanityPizza {
-        allSanityPizza {
+    query allSanityPizza($toppingRegex: String) {
+        allSanityPizza(
+            filter: {
+                toppings: { elemMatch: { name: { regex: $toppingRegex } } }
+            }
+        ) {
             nodes {
                 ...testFragment
             }
@@ -46,6 +46,9 @@ export const query = graphql`
         }
         image {
             asset {
+                fixed(width: 200, height: 200) {
+                    ...GatsbySanityImageFixed
+                }
                 fluid(maxWidth: 400) {
                     ...GatsbySanityImageFluid
                 }

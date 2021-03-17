@@ -2,7 +2,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 /* Instruments */
-import bg from '../assets/images/bg.svg';
+import bg      from '../assets/images/bg.svg';
 import stripes from '../assets/images/stripes.svg';
 
 export const GlobalStyles = createGlobalStyle`

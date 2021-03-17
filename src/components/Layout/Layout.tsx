@@ -1,12 +1,12 @@
 /* Core */
-import React from 'react';
+import React  from 'react';
 import styled from 'styled-components';
 import 'normalize.css';
 
 /* Components */
 import { GlobalStyles, Typography } from '../../styles';
-import { Nav } from './Nav';
-import { Footer } from './Footer';
+import { Nav }                      from './Nav';
+import { Footer }                   from './Footer';
 
 /* Instruments */
 import stripes from '../../assets/images/stripes.svg';
