@@ -37,7 +37,9 @@ export const SEO: React.FC<SEOProps> = props => {
             {/* Open Graph meta tags */}
             {/* They are intended for proper displaying of sharing content to social media */}
             {/* For example to facebook. */}
-            {location && <meta content = { location.href } property = 'og:url' />}
+            {typeof window !== 'undefined' && location && (
+                <meta content = { location.href } property = 'og:url' />
+            )}
             <meta content = { props.image || '/logo.svg' } property = 'og:image' />
             <meta content = { props.title } key = 'ogtitle' property = 'og:title' />
             <meta
