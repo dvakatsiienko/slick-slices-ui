@@ -42,10 +42,8 @@ module.exports = async (req, res) => {
         }
     }
 
-    let info = null;
-
     try {
-        info = await transporter.sendMail({
+        await transporter.sendMail({
             from:    'Slick\'s Slices <slick@example.com>',
             to:      `${body.name} <${body.email}>, orders@example.com`,
             subject: 'New order!',
@@ -67,11 +65,11 @@ function generateOrderEmail(options) {
             const { thumbnail, name, size } = orderItem;
 
             return `
-            <li>
-                <img src="${thumbnail}" alt="${name}" />
-                ${size} ${name} - ${size}
-            </li>
-        `;
+                <li>
+                    <img src="${thumbnail}" alt="${name}" />
+                    ${size} ${name} - ${size}
+                </li>
+            `;
         })
         .join('');
 
