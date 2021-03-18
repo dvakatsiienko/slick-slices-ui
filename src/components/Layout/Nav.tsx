@@ -18,7 +18,7 @@ export const Nav: React.FC = () => {
                     <Link to = '/pizzas'>Pizza Menu</Link>
                 </li>
 
-                <li>
+                <li className = 'logo-list-item'>
                     <Link to = '/'>
                         <Logo />
                     </Link>
@@ -38,6 +38,8 @@ export const Nav: React.FC = () => {
 
 /* Types */
 const NavStyles = styled.nav`
+    transform: translateY(-30%);
+
     & .logo {
         transform: translateY(-25%);
     }
@@ -49,7 +51,6 @@ const NavStyles = styled.nav`
         align-items: center;
         padding: 0;
         margin: 0;
-        margin-top: 6rem;
         text-align: center;
         list-style: none;
 
@@ -77,6 +78,7 @@ const NavStyles = styled.nav`
         }
 
         & a {
+            display: block;
             font-size: 3rem;
             text-decoration: none;
 
@@ -87,6 +89,38 @@ const NavStyles = styled.nav`
             &[aria-current='page'] {
                 color: var(--red);
             }
+
+            @media (max-width: 800px) {
+                font-size: 2rem;
+            }
         }
+
+        @media (max-width: 600px) {
+            --columns: 4;
+
+            grid-template-columns: auto auto;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            justify-items: center;
+
+            & .logo-list-item {
+                grid-column: 1 / -1;
+                order: 0;
+            }
+
+            & .logo {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            --columns: 2;
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--grey);
+        transform: translateY(-20%);
     }
 `;

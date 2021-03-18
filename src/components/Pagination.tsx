@@ -23,11 +23,17 @@ export const Pagination: React.FC<PaginationProps> = props => {
     return (
         <PaginationStyles>
             <Link aria-disabled = { !hasPrevPage } to = { `${props.base}/${prevPage}` }>
-                ← Prev
+                ←&nbsp;
+                <span className = 'word' title = 'Previous Page'>
+                    Prev
+                </span>
             </Link>
             {pagesJSX}
             <Link aria-disabled = { !hasNextPage } to = { `${props.base}/${nextPage}` }>
-                → Next
+                <span className = 'word' title = 'Next Page'>
+                    Next
+                </span>
+                &nbsp;→
             </Link>
         </PaginationStyles>
     );
@@ -39,7 +45,7 @@ const PaginationStyles = styled.div`
     align-content: center;
     align-items: center;
     justify-items: center;
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     border: 1px solid var(--grey);
     border-radius: 5px;
 
@@ -48,6 +54,7 @@ const PaginationStyles = styled.div`
         flex: 1;
         justify-content: center;
         padding: 1rem;
+        text-decoration: none;
         user-select: none;
         border-right: 1px solid var(--grey);
 
@@ -58,6 +65,18 @@ const PaginationStyles = styled.div`
         &[aria-disabled='true'] {
             color: var(--grey);
             pointer-events: none;
+        }
+
+        &:hover {
+            color: var(--red);
+        }
+    }
+
+    @media (max-width: 800px) {
+        font-size: 1.4rem;
+
+        & .word {
+            display: none;
         }
     }
 `;

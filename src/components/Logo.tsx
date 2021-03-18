@@ -37,7 +37,6 @@ const LogoStyles = styled.div`
     height: 30em;
     margin: 0;
     font-size: 6px;
-    font-size: clamp(1px, 0.65vw, 8px);
     background: white url(${stripes});
     background-size: 150em;
     border: var(--borderSize) solid white;
