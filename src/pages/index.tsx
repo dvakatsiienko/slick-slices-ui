@@ -1,6 +1,3 @@
-/* Core */
-import React from 'react';
-
 /* Components */
 import { HomePageGridStyles }    from '../styles';
 import { LoadingGrid, ItemGrid } from '../components';
