@@ -1,31 +1,27 @@
 /* Core */
 const nodemailer = require('nodemailer');
+const waait = require('waait');
 
 const { MAIL_HOST, MAIL_USER, MAIL_PASSWORD } = process.env;
 
-// const mailConfig = {
-//     host: MAIL_HOST,
-//     port: 587,
-//     auth: {
-//         user: MAIL_USER,
-//         pass: MAIL_PASSWORD,
-//     },
-// };
 const mailConfig = {
-    host: 'smtp.ethereal.email',
+    host: MAIL_HOST,
     port: 587,
     auth: {
-        user: 'ramona92@ethereal.email',
-        pass: 'xAt8ACr84YPBxyJSc3',
+        user: MAIL_USER,
+        pass: MAIL_PASSWORD,
     },
-    secure: true,
 };
 
 const transporter = nodemailer.createTransport(mailConfig);
 
 exports.handler = async (event, context) => {
+    await waait(2000);
+
     const body = JSON.parse(event.body, null, 4);
     const requiredFields = [ 'email', 'name', 'order' ];
+
+    console.log(body);
 
     if (body.mapleSyrup) {
         return {
@@ -35,12 +31,19 @@ exports.handler = async (event, context) => {
     }
 
     for (const field of requiredFields) {
-        if (!body[ field ]) {
-            let message = `Oops! You are missing the ${field} field.`;
+        console.log(body.order);
 
-            if (field === 'order' && !body.order.length) {
-                message = 'Why would you order nothing?!';
-            }
+        if (!body[ field ]) {
+            const message = `Oops! You are missing the ${field} field.`;
+
+            return {
+                statusCode: 400,
+                body:       JSON.stringify({ message }),
+            };
+        }
+
+        if (field === 'order' && !body.order.length) {
+            const message = 'Why would you order nothing?!';
 
             return {
                 statusCode: 400,
@@ -51,30 +54,19 @@ exports.handler = async (event, context) => {
 
     let info = null;
 
-    info = await transporter.sendMail({
-        from:    'Slick\'s Slices <slick@example.com>',
-        // to:      `${body.name} <${body.email}>, orders@example.com`,
-        to:      'orders@example.com',
-        subject: 'New order!',
-        html:    '<h1>hello</h1>',
-        // html:    generateOrderEmail({ order: body.order, total: body.total }),
-    });
-
     try {
         info = await transporter.sendMail({
             from:    'Slick\'s Slices <slick@example.com>',
-            // to:      `${body.name} <${body.email}>, orders@example.com`,
-            to:      'orders@example.com',
+            to:      `${body.name} <${body.email}>, orders@example.com`,
             subject: 'New order!',
-            html:    '<h1>hello</h1>',
-            // html:    generateOrderEmail({ order: body.order, total: body.total }),
+            html:    generateOrderEmail({ order: body.order, total: body.total }),
         });
     } catch (error) {
-        console.log(error);
-
         return {
             statusCode: 500,
-            body:       JSON.stringify({ message: 'Nodemailer failed. :(' }),
+            body:       JSON.stringify({
+                message: `Nodemailer failed: ${error.message}. :(`,
+            }),
         };
     }
 
@@ -86,16 +78,18 @@ exports.handler = async (event, context) => {
 
 /* Helpers */
 function generateOrderEmail(options) {
-    const orderItemsList = options.order.map(orderItem => {
-        const { thumbnail, name, size } = orderItem;
+    const orderItemsList = options.order
+        .map(orderItem => {
+            const { thumbnail, name, size } = orderItem;
 
-        return `
+            return `
             <li>
                 <img src="${thumbnail}" alt="${name}" />
                 ${size} ${name} - ${size}
             </li>
         `;
-    });
+        })
+        .join('');
 
     return `
         <div>

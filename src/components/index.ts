@@ -6,3 +6,5 @@ export * from './Pagination';
 export * from './SEO';
 export * from './PizzaOrder';
 export * from './OrderContext';
+export * from './LoadingGrid';
+export * from './ItemGrid';

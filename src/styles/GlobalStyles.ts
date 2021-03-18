@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
         --grey: #efefef;
     }
 
-    html {
+    & html {
         font-size: 10px;
         background-image: url(${bg});
         background-attachment: fixed;
@@ -23,16 +23,31 @@ export const GlobalStyles = createGlobalStyle`
         scrollbar-color: var(--red) var(--white);
     }
 
-    body {
+    & body {
         font-size: 2rem;
+
+        /* Scrollbar Styles */
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--white);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--red);
+            border: 3px solid var(--white);
+            border-radius: 6px;
+        }
     }
 
-    fieldset {
+    & fieldset {
         border-color: rgba(0, 0, 0, 0.1);
         border-width: 1px;
     }
 
-    button {
+    & button {
         --cast: 2px;
 
         padding: 0.6rem 1rem;
@@ -55,33 +70,19 @@ export const GlobalStyles = createGlobalStyle`
         image-rendering: -moz-crisp-edges;
     }
 
-    /* Scrollbar Styles */
-    body::-webkit-scrollbar {
-        width: 12px;
-    }
 
-    body::-webkit-scrollbar-track {
-        background: var(--white);
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background-color: var(--red);
-        border: 3px solid var(--white);
-        border-radius: 6px;
-    }
-
-    hr {
+    & hr {
         height: 8px;
         background-image: url(${stripes});
         background-size: 1500px;
         border: 0;
     }
 
-    img {
+    & img {
         max-width: 100%;
     }
 
-    .tilt {
+    & .tilt {
         position: relative;
         display: inline-block;
         transform: rotate(-2deg);

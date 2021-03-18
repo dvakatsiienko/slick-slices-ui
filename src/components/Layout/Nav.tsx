@@ -38,8 +38,6 @@ export const Nav: React.FC = () => {
 
 /* Types */
 const NavStyles = styled.nav`
-    margin-bottom: 3rem;
-
     & .logo {
         transform: translateY(-25%);
     }

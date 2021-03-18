@@ -28,15 +28,12 @@ export const usePizza = pizzas => {
         const body = {
             order: attachNamesAndPrices(order, pizzas),
             total: calculateOrderTotal(order, pizzas),
-            name:  values.name,
-            email: values.email,
+            ...values,
         };
-
-        console.log('body to send', body);
 
         try {
             const response = await fetch(
-                `${process.env.GATSBY_SERVERLESS_BASE}/place-order`,
+                `${process.env.GATSBY_SERVERLESS_URL}/place-order`,
                 {
                     method:  'POST',
                     headers: { 'Content-Type': 'application/json' },

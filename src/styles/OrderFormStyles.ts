@@ -13,6 +13,11 @@ export const OrderFormStyles = styled.form`
         max-height: 600px;
         overflow: auto;
 
+        & legend {
+            width: max-content;
+            padding: 0 5px;
+        }
+
         & label {
             display: grid;
             gap: 1rem;
@@ -32,6 +37,11 @@ export const OrderFormStyles = styled.form`
         &.order {
             display: flex;
             flex-direction: column;
+        }
+
+        & button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
         }
     }
 

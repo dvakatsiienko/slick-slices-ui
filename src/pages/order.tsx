@@ -75,7 +75,7 @@ const OrderPage = props => {
             <SEO title = 'Order a Pizza!' />
 
             <OrderFormStyles onSubmit = { login }>
-                <fieldset>
+                <fieldset disabled = { pizzaControl.loading }>
                     <legend>You Info</legend>
                     <label htmlFor = 'name'>
                         Name {form.errors.name && form.errors.name?.message}
@@ -84,15 +84,21 @@ const OrderPage = props => {
                     <label htmlFor = 'email'>
                         Email {form.errors.email && form.errors.email?.message}
                         <input name = 'email' ref = { form.register() } type = 'text' />
+                        <input
+                            className = 'mapleSyrup'
+                            name = 'mapleSyrup'
+                            ref = { form.register() }
+                            type = 'text'
+                        />
                     </label>
                 </fieldset>
 
-                <fieldset className = 'menu'>
+                <fieldset className = 'menu' disabled = { pizzaControl.loading }>
                     <legend>Menu</legend>
                     {pizzaListJSX}
                 </fieldset>
 
-                <fieldset className = 'order'>
+                <fieldset className = 'order' disabled = { pizzaControl.loading }>
                     <legend>Order</legend>
                     <PizzaOrder
                         order = { pizzaControl.order }
@@ -101,7 +107,7 @@ const OrderPage = props => {
                     />
                 </fieldset>
 
-                <fieldset>
+                <fieldset disabled = { pizzaControl.loading }>
                     <h3>
                         Your total is{' '}
                         {calculateOrderTotal(pizzaControl.order, pizzas)}
@@ -128,14 +134,16 @@ const OrderPage = props => {
 
 /* Helpers */
 const schema: yup.SchemaOf<FormShape> = yup.object().shape({
-    name:  yup.string().required('is required'),
-    email: yup.string().email('must be valid email').required('is required'),
+    name:       yup.string().required('is required'),
+    email:      yup.string().email('must be valid email').required('is required'),
+    mapleSyrup: yup.string(),
 });
 
 /* Types */
 interface FormShape {
     name: string;
     email: string;
+    mapleSyrup: string;
 }
 
 export const query = graphql`
