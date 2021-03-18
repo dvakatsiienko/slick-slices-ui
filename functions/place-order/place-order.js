@@ -21,8 +21,6 @@ exports.handler = async (event, context) => {
     const body = JSON.parse(event.body, null, 4);
     const requiredFields = [ 'email', 'name', 'order' ];
 
-    console.log(body);
-
     if (body.mapleSyrup) {
         return {
             statusCode: 400,
@@ -31,8 +29,6 @@ exports.handler = async (event, context) => {
     }
 
     for (const field of requiredFields) {
-        console.log(body.order);
-
         if (!body[ field ]) {
             const message = `Oops! You are missing the ${field} field.`;
 
