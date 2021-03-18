@@ -1,5 +1,5 @@
 /* Core */
-import React                             from 'react';
+import * as React                        from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled                            from 'styled-components';
 

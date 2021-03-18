@@ -1,8 +1,8 @@
 /* Core */
-import React    from 'react';
-import { Link } from 'gatsby';
-import Image    from 'gatsby-image';
-import styled   from 'styled-components';
+import * as React from 'react';
+import { Link }   from 'gatsby';
+import Image      from 'gatsby-image';
+import styled     from 'styled-components';
 
 /* Instruments */
 // import * as gql from '../../graphql-types';

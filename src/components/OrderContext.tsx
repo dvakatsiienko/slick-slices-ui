@@ -1,5 +1,7 @@
 /* Core */
-import React, { useState, createContext } from 'react';
+import { useState, createContext } from 'react';
+
+import * as React from 'react';
 
 export const OrderContext = createContext([]);
 

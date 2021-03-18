@@ -1,7 +1,7 @@
 /* Core */
-import React    from 'react';
-import { Link } from 'gatsby';
-import styled   from 'styled-components';
+import * as React from 'react';
+import { Link }   from 'gatsby';
+import styled     from 'styled-components';
 
 export const Pagination: React.FC<PaginationProps> = props => {
     const totalPages = Math.ceil(props.totalCount / props.pageSize);

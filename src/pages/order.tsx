@@ -1,5 +1,4 @@
 /* Core */
-import React           from 'react';
 import { graphql }     from 'gatsby';
 import Image           from 'gatsby-image';
 import { useForm }     from 'react-hook-form';

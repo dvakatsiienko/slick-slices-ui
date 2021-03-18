@@ -1,7 +1,4 @@
 /* Core */
-import React from 'react';
-
-/* Components */
 import { Layout, OrderProvider } from './src/components';
 
 export const wrapPageElement = args => {

@@ -1,5 +1,5 @@
 /* Core */
-import React from 'react';
+import * as React from 'react';
 
 /* Components */
 import { GridListStyles, ListGridItemStyles } from '../styles';

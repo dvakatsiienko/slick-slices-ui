@@ -1,6 +1,6 @@
 /* Core */
-import React from 'react';
-import Image from 'gatsby-image';
+import * as React from 'react';
+import Image      from 'gatsby-image';
 
 /* Components */
 import { MenuItemStyles } from '../styles';
