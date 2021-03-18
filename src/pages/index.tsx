@@ -1,4 +1,5 @@
 /* Components */
+import React                     from 'react';
 import { HomePageGridStyles }    from '../styles';
 import { LoadingGrid, ItemGrid } from '../components';
 
