@@ -1,8 +1,8 @@
 /* Core */
-import * as React from 'react';
-import { Link }   from 'gatsby';
-import Image      from 'gatsby-image';
-import styled     from 'styled-components';
+import * as React      from 'react';
+import { Link }        from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import styled          from 'styled-components';
 
 /* Instruments */
 // import * as gql from '../../graphql-types';
@@ -44,7 +44,7 @@ export const Pizza: React.FC<PizzaProps> = props => {
                 </Link>
             </h2>
             <p>{toppingsJSX}</p>
-            <Image
+            <GatsbyImage
                 alt = { props.pizza.name }
                 fluid = { props.pizza.image.asset.fluid }
             />
