@@ -1,5 +1,12 @@
-:root {
+@font-face {
+    font-family: FrenchFries;
+    src: url(./assets/fonts/frenchfries.woff);
+}
+
+html {
+    font-family: FrenchFries, system-ui;
     font-size: 10px;
+    color: var(--black);
     background-image: url(./assets/images/bg.svg);
     background-attachment: fixed;
     background-size: 450px;
@@ -23,50 +30,85 @@
             border: 3px solid var(--white);
             border-radius: 6px;
         }
-    }
 
-    & fieldset {
-        border-color: rgba(0, 0, 0, 0.1);
-        border-width: 1px;
-    }
-
-    & button {
-        --cast: 2px;
-
-        padding: 0.6rem 1rem;
-        color: white;
-        text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        background: var(--red);
-        border: 0;
-        border-radius: 2px;
-        box-shadow: var(--cast) var(--cast) 0 var(--grey);
-        transition: all 0.2s;
-
-        &:hover {
-            --cast: 4px;
+        & fieldset {
+            border-color: rgba(0, 0, 0, 0.1);
+            border-width: 1px;
         }
-    }
 
-    & .gatsby-image-wrapper img[src*='base64\\,'] {
-        image-rendering: pixelated;
-        image-rendering: -moz-crisp-edges;
-    }
+        & button {
+            --cast: 2px;
 
-    & hr {
-        height: 8px;
-        background-image: url(./assets/images/stripes.svg);
-        background-size: 1500px;
-        border: 0;
-    }
+            padding: 0.6rem 1rem;
+            color: white;
+            text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            background: var(--red);
+            border: 0;
+            border-radius: 2px;
+            box-shadow: var(--cast) var(--cast) 0 var(--grey);
+            transition: all 0.2s;
 
-    & img {
-        max-width: 100%;
-    }
+            &:hover {
+                --cast: 4px;
+            }
+        }
 
-    & .tilt {
-        position: relative;
-        display: inline-block;
-        transform: rotate(-2deg);
+        & .gatsby-image-wrapper img[src*='base64'] {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+        }
+
+        & hr {
+            height: 8px;
+            background-image: url(./assets/images/stripes.svg);
+            background-size: 1500px;
+            border: 0;
+        }
+
+        & img {
+            max-width: 100%;
+        }
+
+        & .tilt {
+            position: relative;
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+
+        /* Typography */
+        & h1,
+        & h2,
+        & h3,
+        & h4,
+        & h5,
+        & h6 {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        & p,
+        & li {
+            letter-spacing: 0.5px;
+        }
+
+        & a {
+            /* Chrome renders this weird with this font, so we turn it off */
+            color: var(--black);
+            text-decoration-skip-ink: none;
+            text-decoration-color: var(--red);
+        }
+
+        & mark,
+        & .mark {
+            display: inline;
+            padding: 0 2px 2px 2px;
+            line-height: 1;
+            background: var(--yellow);
+        }
+
+        & .center {
+            text-align: center;
+        }
     }
 }
