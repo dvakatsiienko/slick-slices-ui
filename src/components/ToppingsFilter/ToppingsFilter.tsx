@@ -1,7 +1,9 @@
 /* Core */
 import * as React                        from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import styled                            from 'styled-components';
+
+/* Instruments */
+import { toppingsFilter as toppingsFilterStyles } from './styles.module.scss';
 
 export const ToppingsFilter: React.FC = () => {
     const data = useStaticQuery(
@@ -39,43 +41,15 @@ export const ToppingsFilter: React.FC = () => {
     });
 
     return (
-        <ToppingsStyles>
+        <div className = { toppingsFilterStyles }>
             <Link to = '/pizzas'>
                 <span className = 'name'>All</span>
                 <span className = 'count'>{pizzas.nodes.length}</span>
             </Link>
             {toppingLinks}
-        </ToppingsStyles>
+        </div>
     );
 };
-
-/* Styles */
-const ToppingsStyles = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 4rem;
-
-    & a {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-gap: 0 rem;
-        align-items: center;
-        padding: 5px;
-        font-size: clamp(1.5rem, 1.4vw, 2.5rem);
-        background: var(--grey);
-        border-radius: 2px;
-
-        & .count {
-            padding: 2px 5px;
-            background: white;
-        }
-
-        &[aria-current='page'] {
-            background: var(--yellow);
-        }
-    }
-`;
 
 /* Helpers */
 function countPizzasInToppings(pizzas) {

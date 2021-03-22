@@ -5,8 +5,8 @@
 
     & fieldset {
         display: grid;
-        gap: 1rem;
         grid-column: span 2;
+        gap: 1rem;
         max-height: 600px;
         overflow: auto;
 
@@ -19,10 +19,10 @@
             display: grid;
             gap: 1rem;
             align-content: start;
-        }
 
-        & label + label {
-            margin-top: 1rem;
+            & + label {
+                margin-top: 1rem;
+            }
         }
 
         &.order,
@@ -37,8 +37,8 @@
         }
 
         & button:disabled {
-            background-color: grey;
             cursor: not-allowed;
+            background-color: grey;
         }
     }
 
@@ -54,13 +54,13 @@
     }
 
     & .ordered-pizza-list-item {
+        position: relative;
         display: grid;
-        grid-template-columns: 100px 1fr;
         grid-template-rows: 1fr 1fr;
+        grid-template-columns: 100px 1fr;
         gap: 0 1.3rem;
         align-content: center;
         align-items: center;
-        position: relative;
         width: 100%;
 
         & .gatsby-image-wrapper {
@@ -82,14 +82,14 @@
         }
 
         & .remove {
-            background: none;
-            color: var(--red);
-            font-size: 3rem;
             position: absolute;
             top: 0;
             right: 0;
-            box-shadow: none;
+            font-size: 3rem;
             line-height: 1rem;
+            color: var(--red);
+            background: none;
+            box-shadow: none;
         }
     }
 }

@@ -1,3 +1,2 @@
-src/graphql
-src/assets
-src/styles
+src/theme/assets/fonts
+src/features/home-page/SubgridList.tsx

@@ -1,0 +1,26 @@
+.toppingsFilter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+
+    & a {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 0 rem;
+        align-items: center;
+        padding: 5px;
+        font-size: clamp(1.5rem, 1.4vw, 2.5rem);
+        background: var(--grey);
+        border-radius: 2px;
+
+        & .count {
+            padding: 2px 5px;
+            background: white;
+        }
+
+        &[aria-current='page'] {
+            background: var(--yellow);
+        }
+    }
+}
