@@ -24,7 +24,7 @@ module.exports = {
                 projectId: 'zymjgahi',
                 dataset:   'production',
                 token:     process.env.SANITY_TOKEN,
-                watchMode: true,
+                watchMode: process.env.NODE_ENV === 'development',
             },
         },
         {
