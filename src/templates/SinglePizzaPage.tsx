@@ -1,43 +1,36 @@
 /* Core */
-import * as React  from 'react';
 import { graphql } from 'gatsby';
-import Image       from 'gatsby-image';
-import styled      from 'styled-components';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 /* Components */
 import { SEO } from '../components';
 
-export const SinglePizzaPage: React.FC<SinglePizzaPageProps> = props => {
+/* Instruments */
+import { pizzaView as pizzaViewStyles } from '../components/PizzaList/styles.module.scss';
+
+export const SinglePizzaPage: React.FC = props => {
     const { pizza } = props.data;
 
     const toppingsJSX = pizza.toppings.map(topping => (
-        <li key = { topping.id }>{topping.name}</li>
+        <li key={topping.id}>{topping.name}</li>
     ));
+
+    const image = getImage(pizza.image.asset);
 
     return (
         <>
-            <SEO image = { pizza.image.asset?.fluid?.src } title = { pizza.name } />
+            <SEO image={pizza.image.asset?.fluid?.src} title={pizza.name} />
 
-            <PizzaGrid>
-                <Image fluid = { pizza.image.asset.fluid } />
+            <div className={pizzaViewStyles}>
+                <GatsbyImage alt={pizza.name} image={image} />
                 <div>
-                    <h2 className = 'mark'>{pizza.name}</h2>
+                    <h2 className="mark">{pizza.name}</h2>
                     <ul>{toppingsJSX}</ul>
                 </div>
-            </PizzaGrid>
+            </div>
         </>
     );
 };
-
-/* Helpers */
-const PizzaGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 2rem;
-`;
-
-/* Types */
-interface SinglePizzaPageProps {}
 
 const query = graphql`
     query($slug: String!) {
@@ -46,9 +39,7 @@ const query = graphql`
             name
             image {
                 asset {
-                    fluid(maxWidth: 800) {
-                        ...GatsbySanityImageFluid
-                    }
+                    gatsbyImageData(placeholder: BLURRED)
                 }
             }
             toppings {

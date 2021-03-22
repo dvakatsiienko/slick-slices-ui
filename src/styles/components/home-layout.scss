@@ -1,0 +1,66 @@
+.home-layout {
+    --columns: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
+    gap: 20px;
+
+    @media (max-width: 800px) {
+        --columns: 1;
+    }
+
+    & .subgrid-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        &-item {
+            position: relative;
+            text-align: center;
+
+            & img {
+                height: auto;
+                font-size: 0;
+
+                &.loading {
+                    --shine: white;
+                    --background: var(--grey);
+
+                    background-image: linear-gradient(
+                        90deg,
+                        var(--background) 0,
+                        var(--shine) 40px,
+                        var(--background) 80px
+                    );
+                    background-size: 500px;
+                    animation: shine 1s infinite linear;
+
+                    @keyframes shine {
+                        from {
+                            background-position: 200%;
+                        }
+
+                        to {
+                            background-position: -40%;
+                        }
+                    }
+                }
+            }
+
+            & p {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                margin: 0;
+                font-size: 2rem;
+                font-size: clamp(12px, 5vw, 20px);
+                transform: rotate(-2deg) translateY(-10px);
+            }
+
+            & .mark {
+                display: inline;
+            }
+        }
+    }
+}

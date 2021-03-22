@@ -3,7 +3,7 @@ import * as React                        from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled                            from 'styled-components';
 
-export const ToppingsFilter: React.FC<ToppingsFilterProps> = props => {
+export const ToppingsFilter: React.FC = () => {
     const data = useStaticQuery(
         graphql`
             query {
@@ -102,9 +102,4 @@ function countPizzasInToppings(pizzas) {
     );
 
     return sortedToppings;
-}
-
-/* Types */
-interface ToppingsFilterProps {
-    activeTopping: string;
 }

@@ -1,7 +1,4 @@
-/* Core */
-import styled from 'styled-components';
-
-export const OrderFormStyles = styled.form`
+.order-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -55,4 +52,44 @@ export const OrderFormStyles = styled.form`
             grid-column: span 2;
         }
     }
-`;
+
+    & .ordered-pizza-list-item {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0 1.3rem;
+        align-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+
+        & .gatsby-image-wrapper {
+            grid-row: span 2;
+            height: 100%;
+        }
+
+        & p {
+            margin: 0;
+        }
+
+        & .controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        & button {
+            font-size: 1.5rem;
+        }
+
+        & .remove {
+            background: none;
+            color: var(--red);
+            font-size: 3rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            box-shadow: none;
+            line-height: 1rem;
+        }
+    }
+}

@@ -1,16 +1,15 @@
 /* Core */
-import React           from 'react';
-import { graphql }     from 'gatsby';
-import Image           from 'gatsby-image';
-import { useForm }     from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup        from 'yup';
+import React                     from 'react';
+import { graphql, PageProps }    from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { useForm }               from 'react-hook-form';
+import { yupResolver }           from '@hookform/resolvers/yup';
+import * as yup                  from 'yup';
 
 /* Components */
 import { SEO, PizzaOrder } from '../components';
 
 /* Instruments */
-import { OrderFormStyles, MenuItemStyles } from '../styles';
 import {
     calculatePizzaPrice,
     formatMoney,
@@ -18,7 +17,7 @@ import {
     calculateOrderTotal
 } from '../utils';
 
-const OrderPage = props => {
+const OrderPage: React.FC<PageProps> = props => {
     const { nodes: pizzas } = props.data.pizzas;
 
     const form = useForm<FormShape>({
@@ -34,13 +33,13 @@ const OrderPage = props => {
         pizzaControl.submitOrder(values);
     });
 
-    const pizzaListJSX = pizzas.map(pizza => {
+    const pizzaListJSX = pizzas.slice(0, 9).map(pizza => {
+        const image = getImage(pizza.image.asset);
+
         return (
-            <MenuItemStyles key = { pizza.id }>
-                <Image alt = { pizza.name } fluid = { pizza.image.asset.fluid } />
-                <div>
-                    <h2>{pizza.name}</h2>
-                </div>
+            <div className = 'ordered-pizza-list-item' key = { pizza.id }>
+                <GatsbyImage alt = { pizza.name } image = { image } />
+                <h2>{pizza.name}</h2>
                 <div className = 'controls'>
                     {[ 'S', 'M', 'L' ].map((size, index) => {
                         const addToOrder = () => pizzaControl.addToOrder({
@@ -62,7 +61,7 @@ const OrderPage = props => {
                         );
                     })}
                 </div>
-            </MenuItemStyles>
+            </div>
         );
     });
 
@@ -74,7 +73,7 @@ const OrderPage = props => {
         <>
             <SEO title = 'Order a Pizza!' />
 
-            <OrderFormStyles onSubmit = { login }>
+            <form className = 'order-form' onSubmit = { login }>
                 <fieldset disabled = { pizzaControl.loading }>
                     <legend>You Info</legend>
                     <label htmlFor = 'name'>
@@ -127,7 +126,7 @@ const OrderPage = props => {
                             : 'Order Ahead'}
                     </button>
                 </fieldset>
-            </OrderFormStyles>
+            </form>
         </>
     );
 };
@@ -158,9 +157,7 @@ export const query = graphql`
                 }
                 image {
                     asset {
-                        fluid(maxWidth: 100) {
-                            ...GatsbySanityImageFluid
-                        }
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                 }
             }

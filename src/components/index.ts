@@ -1,10 +1,8 @@
 export * from './Layout';
-export * from './Logo';
+export * from './SEO';
+export * from './Pagination';
+
 export * from './PizzaList';
 export * from './ToppingsFilter';
-export * from './Pagination';
-export * from './SEO';
 export * from './PizzaOrder';
 export * from './OrderContext';
-export * from './LoadingGrid';
-export * from './ItemGrid';

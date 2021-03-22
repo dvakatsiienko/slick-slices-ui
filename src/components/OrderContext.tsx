@@ -1,11 +1,9 @@
 /* Core */
-import { useState, createContext } from 'react';
-
-import * as React from 'react';
+import React, { useState, createContext } from 'react';
 
 export const OrderContext = createContext([]);
 
-export const OrderProvider: React.FC<OrderProviderProps> = props => {
+export const OrderProvider: React.FC = props => {
     const [ order, setOrder ] = useState([]);
 
     return (
@@ -14,6 +12,3 @@ export const OrderProvider: React.FC<OrderProviderProps> = props => {
         </OrderContext.Provider>
     );
 };
-
-/* Types */
-interface OrderProviderProps {}

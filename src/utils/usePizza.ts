@@ -33,7 +33,7 @@ export const usePizza = pizzas => {
 
         try {
             const response = await fetch(
-                `${process.env.GATSBY_SERVERLESS_URL}/place-order`,
+                `${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`,
                 {
                     method:  'POST',
                     headers: { 'Content-Type': 'application/json' },

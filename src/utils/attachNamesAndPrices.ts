@@ -1,5 +1,8 @@
+/* Core */
+import { getSrc } from 'gatsby-plugin-image';
+
 /* Instruments */
-import { calculatePizzaPrice } from '.';
+import { calculatePizzaPrice } from './calculatePizzaPrice';
 
 export const attachNamesAndPrices = (order, pizzas) => {
     const result = order.map(orderItem => {
@@ -8,7 +11,7 @@ export const attachNamesAndPrices = (order, pizzas) => {
         return {
             ...orderItem,
             name:      pizza.name,
-            thumbnail: pizza.image.asset.fluid.src,
+            thumbnail: getSrc(pizza.image.asset),
             price:     calculatePizzaPrice(pizza.price, orderItem.size),
         };
     });

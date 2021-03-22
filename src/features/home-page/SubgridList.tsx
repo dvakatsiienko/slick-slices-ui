@@ -1,13 +1,7 @@
-/* Core */
-import * as React from 'react';
-
-/* Components */
-import { GridListStyles, ListGridItemStyles } from '../styles';
-
-export const ItemGrid: React.FC<ItemGridProps> = props => {
+export const SubgridList: React.FC<SubgridListProps> = props => {
     const itemListJSX = props.items.map(item => {
         return (
-            <ListGridItemStyles key = { item._id }>
+            <div className = 'subgrid-list-item' key = { item._id }>
                 <p>
                     <span className = 'mark'>{item.name}</span>
                 </p>
@@ -21,14 +15,14 @@ export const ItemGrid: React.FC<ItemGridProps> = props => {
                     }}
                     width = '500'
                 />
-            </ListGridItemStyles>
+            </div>
         );
     });
 
-    return <GridListStyles>{itemListJSX}</GridListStyles>;
+    return <div className = 'subgrid-list'>{itemListJSX}</div>;
 };
 
 /* Types */
-interface ItemGridProps {
+interface SubgridListProps {
     items: [];
 }

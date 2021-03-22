@@ -1,27 +1,10 @@
-/* Core */
-import { createGlobalStyle } from 'styled-components';
-
-/* Instruments */
-import bg      from '../assets/images/bg.svg';
-import stripes from '../assets/images/stripes.svg';
-
-export const GlobalStyles = createGlobalStyle`
-    :root {
-        --red: #FF4949;
-        --black: #2e2e2e;
-        --yellow: #ffc600;
-        --white: #fff;
-        --grey: #efefef;
-    }
-
-    & html {
-        font-size: 10px;
-        background-image: url(${bg});
-        background-attachment: fixed;
-        background-size: 450px;
-        scrollbar-width: thin;
-        scrollbar-color: var(--red) var(--white);
-    }
+:root {
+    font-size: 10px;
+    background-image: url(../assets/images/bg.svg);
+    background-attachment: fixed;
+    background-size: 450px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) var(--white);
 
     & body {
         font-size: 2rem;
@@ -52,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
 
         padding: 0.6rem 1rem;
         color: white;
-        text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
+        text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
         cursor: pointer;
         background: var(--red);
         border: 0;
@@ -65,15 +48,14 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
-    & .gatsby-image-wrapper img[src*=base64\\,] {
+    & .gatsby-image-wrapper img[src*='base64\\,'] {
         image-rendering: pixelated;
         image-rendering: -moz-crisp-edges;
     }
 
-
     & hr {
         height: 8px;
-        background-image: url(${stripes});
+        background-image: url(../assets/images/stripes.svg);
         background-size: 1500px;
         border: 0;
     }
@@ -87,6 +69,4 @@ export const GlobalStyles = createGlobalStyle`
         display: inline-block;
         transform: rotate(-2deg);
     }
-`;
-
-export default GlobalStyles;
+}

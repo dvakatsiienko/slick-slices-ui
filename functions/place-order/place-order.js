@@ -5,9 +5,10 @@ const waait = require('waait');
 const { MAIL_HOST, MAIL_USER, MAIL_PASSWORD } = process.env;
 
 const mailConfig = {
-    host: MAIL_HOST,
-    port: 587,
-    auth: {
+    host:   MAIL_HOST,
+    port:   587,
+    secure: true,
+    auth:   {
         user: MAIL_USER,
         pass: MAIL_PASSWORD,
     },
@@ -15,7 +16,7 @@ const mailConfig = {
 
 const transporter = nodemailer.createTransport(mailConfig);
 
-exports.handler = async (event, context) => {
+exports.handler = async event => {
     await waait(2000);
 
     const body = JSON.parse(event.body, null, 4);
@@ -48,10 +49,8 @@ exports.handler = async (event, context) => {
         }
     }
 
-    let info = null;
-
     try {
-        info = await transporter.sendMail({
+        await transporter.sendMail({
             from:    'Slick\'s Slices <slick@example.com>',
             to:      `${body.name} <${body.email}>, orders@example.com`,
             subject: 'New order!',

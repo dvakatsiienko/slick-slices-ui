@@ -1,17 +1,15 @@
 /* Core */
-import React       from 'react';
-import { graphql } from 'gatsby';
-import styled      from 'styled-components';
+import { graphql, PageProps } from 'gatsby';
 
 /* Components */
 import { SEO } from '../components';
 
-const BeersPage = props => {
+const BeersPage: React.FC<PageProps> = props => {
     const beersJSX = props.data.beers.nodes.map(beer => {
         const rating = Math.round(beer.rating?.average ?? 0);
 
         return (
-            <SingleBeerStyles key = { beer.id }>
+            <div className = 'beer-list-item' key = { beer.id }>
                 <img alt = { beer.name } src = { beer.image } />
                 <h3>{beer.name}</h3>
                 {beer.price}
@@ -22,7 +20,7 @@ const BeersPage = props => {
                     </span>
                     <span>({beer.rating?.reviews})</span>
                 </p>
-            </SingleBeerStyles>
+            </div>
         );
     });
 
@@ -36,32 +34,11 @@ const BeersPage = props => {
                 We have {props.data.beers.nodes.length} Beers Available. Dine in
                 Only!
             </h2>
-            <BeerGridStyles>{beersJSX}</BeerGridStyles>
+
+            <div className = 'beer-list'>{beersJSX}</div>
         </>
     );
 };
-
-/* Styles */
-const BeerGridStyles = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-`;
-
-const SingleBeerStyles = styled.div`
-    padding: 2rem;
-    text-align: center;
-    border: 1px solid var(--grey);
-
-    & img {
-        display: grid;
-        align-items: center;
-        width: 100%;
-        height: 200px;
-        font-size: 10px;
-        object-fit: cover;
-    }
-`;
 
 export const query = graphql`
     query {

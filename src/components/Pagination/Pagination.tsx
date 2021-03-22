@@ -1,7 +1,9 @@
 /* Core */
 import * as React from 'react';
 import { Link }   from 'gatsby';
-import styled     from 'styled-components';
+
+/* Instruments */
+import { pagination as paginationStyles } from './styles.module.scss';
 
 export const Pagination: React.FC<PaginationProps> = props => {
     const totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -21,7 +23,7 @@ export const Pagination: React.FC<PaginationProps> = props => {
     });
 
     return (
-        <PaginationStyles>
+        <div className = { paginationStyles }>
             <Link aria-disabled = { !hasPrevPage } to = { `${props.base}/${prevPage}` }>
                 ←&nbsp;
                 <span className = 'word' title = 'Previous Page'>
@@ -35,51 +37,9 @@ export const Pagination: React.FC<PaginationProps> = props => {
                 </span>
                 &nbsp;→
             </Link>
-        </PaginationStyles>
+        </div>
     );
 };
-
-/* Styles */
-const PaginationStyles = styled.div`
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-items: center;
-    margin: 0 0 2rem 0;
-    border: 1px solid var(--grey);
-    border-radius: 5px;
-
-    & > * {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        padding: 1rem;
-        text-decoration: none;
-        user-select: none;
-        border-right: 1px solid var(--grey);
-
-        &[aria-current='page'] {
-            color: var(--red);
-        }
-
-        &[aria-disabled='true'] {
-            color: var(--grey);
-            pointer-events: none;
-        }
-
-        &:hover {
-            color: var(--red);
-        }
-    }
-
-    @media (max-width: 800px) {
-        font-size: 1.4rem;
-
-        & .word {
-            display: none;
-        }
-    }
-`;
 
 /* Types */
 interface PaginationProps {

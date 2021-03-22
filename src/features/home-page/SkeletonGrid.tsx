@@ -1,13 +1,7 @@
-/* Core */
-import * as React from 'react';
-
-/* Components */
-import { GridListStyles, ListGridItemStyles } from '../styles';
-
-export const LoadingGrid: React.FC<LoadingGridProps> = props => {
+export const SkeletonGrid: React.FC<SkeletonGridProps> = props => {
     const grid = [ ...Array(props.count).keys() ].map((_, index) => {
         return (
-            <ListGridItemStyles key = { index }>
+            <div className = 'subgrid-list-item' key = { index }>
                 <p>
                     <span className = 'mark'>loading</span>
                 </p>
@@ -18,14 +12,14 @@ export const LoadingGrid: React.FC<LoadingGridProps> = props => {
                     src = 'data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAECAQAAADsOj3LAAAADklEQVR42mNkgANGQkwAAJoABWH6GPAAAAAASUVORK5CYII='
                     width = '500'
                 />
-            </ListGridItemStyles>
+            </div>
         );
     });
 
-    return <GridListStyles>{grid}</GridListStyles>;
+    return <div className = 'subgrid-list'>{grid}</div>;
 };
 
 /* Types */
-interface LoadingGridProps {
+interface SkeletonGridProps {
     count: number;
 }

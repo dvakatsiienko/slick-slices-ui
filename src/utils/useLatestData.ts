@@ -18,18 +18,35 @@ export const useLatestData = () => {
                 },
                 body: JSON.stringify({
                     query: gql`
-                        query {
+                        query StoreSettings {
                             StoreSettings(id: "downtown") {
                                 name
                                 slicemaster {
-                                    ${deets}
+                                    _id
+                                    name
+                                    image {
+                                        asset {
+                                            url
+                                            metadata {
+                                                lqip
+                                            }
+                                        }
+                                    }
                                 }
                                 hotSlices {
-                                    ${deets}
+                                    _id
+                                    name
+                                    image {
+                                        asset {
+                                            url
+                                            metadata {
+                                                lqip
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
-
                     `,
                 }),
             });
@@ -44,17 +61,3 @@ export const useLatestData = () => {
 
     return { hotSlices, slicemasters };
 };
-
-/* Helpers */
-const deets = gql`
-    _id
-    name
-    image {
-        asset {
-            url
-            metadata {
-                lqip
-            }
-        }
-    }
-`;

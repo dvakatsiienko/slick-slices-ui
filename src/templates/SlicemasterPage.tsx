@@ -1,7 +1,6 @@
 /* Core */
-import * as React  from 'react';
 import { graphql } from 'gatsby';
-import Image       from 'gatsby-image';
+import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image';
 
 /* Components */
 import { SEO } from '../components';
@@ -9,14 +8,17 @@ import { SEO } from '../components';
 export const SlicemasterPage: React.FC = props => {
     const { person } = props.data;
 
+    const image = getImage(person.image.asset);
+    const imageSrc = getSrc(person.image.asset);
+
     return (
         <>
-            <SEO image = { person.image.asset.fluid.src } title = { person.name } />
+            <SEO image={imageSrc} title={person.name} />
 
-            <div className = 'center'>
-                <Image fluid = { person.image.asset.fluid } />
+            <div className="center">
+                <GatsbyImage alt={person.name} image={image} />
                 <h2>
-                    <span className = 'mark'>{person.name}</span>
+                    <span className="mark">{person.name}</span>
                 </h2>
                 <p>{person.description}</p>
             </div>
@@ -32,9 +34,7 @@ export const query = graphql`
             description
             image {
                 asset {
-                    fluid(maxWidth: 1000, maxHeight: 750) {
-                        ...GatsbySanityImageFluid
-                    }
+                    gatsbyImageData(placeholder: BLURRED)
                 }
             }
         }

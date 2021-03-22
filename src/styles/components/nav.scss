@@ -1,0 +1,196 @@
+.nav {
+    transform: translateY(-30%);
+
+    & .logo {
+        transform: translateY(-25%);
+    }
+
+    & ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto 1fr 1fr;
+        grid-gap: 2rem;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        list-style: none;
+
+        & li {
+            --rotate: -2deg;
+
+            order: 1;
+            transform: rotate(var(--rotate));
+
+            &:nth-child(1) {
+                --rotate: 1deg;
+            }
+
+            &:nth-child(2) {
+                --rotate: -2.5deg;
+            }
+
+            &:nth-child(4) {
+                --rotate: 2.5deg;
+            }
+
+            &:hover {
+                --rotate: 3deg;
+            }
+        }
+
+        & a {
+            display: block;
+            font-size: 3rem;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--red);
+            }
+
+            &[aria-current='page'] {
+                color: var(--red);
+            }
+
+            @media (max-width: 800px) {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            --columns: 4;
+
+            grid-template-columns: auto auto;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            justify-items: center;
+
+            & .logo-list-item {
+                grid-column: 1 / -1;
+                order: 0;
+            }
+
+            & .logo {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            --columns: 2;
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--grey);
+        transform: translateY(-20%);
+    }
+
+    & .logo {
+        --borderSize: 1em;
+
+        /* This value controls the entire size of the logo */
+        display: flex;
+        width: 30em;
+        height: 30em;
+        margin: 0;
+        font-size: 6px;
+        background: white url(../assets/images/stripes.svg);
+        background-size: 150em;
+        border: var(--borderSize) solid white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+        & .inner {
+            display: grid;
+            flex: 1;
+            grid-template-rows: 20% 1fr 1fr;
+            align-content: center;
+            margin: var(--borderSize);
+            background: white;
+        }
+
+        & .est {
+            align-self: center;
+            font-size: 1.5em;
+        }
+
+        & h1 {
+            display: grid;
+            grid-template-rows: 8fr 2fr;
+            grid-row: 2 / span 2;
+            grid-gap: 2em;
+            align-items: center;
+            margin: 0;
+            transform: translateY(-0.7em);
+        }
+
+        & .slices {
+            font-size: 3.2em;
+            letter-spacing: 0.2em;
+            transform: translateY(-0.15em);
+        }
+
+        & .slicks {
+            display: block;
+            text-shadow: 0.18em 0.18em 0 rgba(0, 0, 0, 0.05);
+            transform: scale(1.4);
+            perspective: 100px;
+        }
+
+        & .letter {
+            --scale: 1;
+            --rotate: -10deg;
+            --translateX: 0;
+            --translateY: 0;
+            --rotateX: 0deg;
+
+            display: inline-block;
+            font-size: 5em;
+            line-height: 1;
+            color: var(--red);
+            transition: transform 0.3s;
+            transform: scale(var(--scale)) rotate(var(--rotate))
+                translateX(var(--translateX)) translateY(var(--translateY))
+                rotateX(var(--rotateX));
+
+            &.S {
+                --translateX: -0.05;
+            }
+
+            &.l {
+                --rotate: 2deg;
+                --scale: 1.4;
+                --translateX: 0.05em;
+                --translateY: -0.05em;
+            }
+
+            &.i {
+                --scale: 0.9;
+                --translateY: -0.1em;
+                --translateX: 0.1em;
+            }
+
+            &.c {
+                --rotate: 3deg;
+                --scale: 0.9;
+                --translateX: 0.1em;
+                --translateY: 0.23em;
+            }
+
+            &.k {
+                --rotate: -12deg;
+                --scale: 1.2;
+                --translateX: 0.06em;
+            }
+
+            &.apos {
+                --translateX: 0.1em;
+            }
+
+            &.s {
+                --rotate: 12deg;
+                --scale: 0.9;
+                --translateY: -0.14em;
+            }
+        }
+    }
+}

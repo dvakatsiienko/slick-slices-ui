@@ -2,6 +2,9 @@
 import React                     from 'react';
 import { Layout, OrderProvider } from './src/components';
 
+/* Instruments */
+import './src/styles/main.scss';
+
 export const wrapPageElement = args => {
     const { element, props } = args;
 

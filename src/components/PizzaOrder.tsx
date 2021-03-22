@@ -1,9 +1,5 @@
 /* Core */
-import * as React from 'react';
-import Image      from 'gatsby-image';
-
-/* Components */
-import { MenuItemStyles } from '../styles';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 /* Instruments */
 import { calculatePizzaPrice, formatMoney } from '../utils';
@@ -15,8 +11,11 @@ export const PizzaOrder: React.FC<PizzaOrderProps> = props => {
         const removeFromOrder = () => props.removeFromOrder(index);
 
         return (
-            <MenuItemStyles key = { `${order.id}-${index}` }>
-                <Image fluid = { pizza.image.asset.fluid } />
+            <div className = 'ordered-pizza-list' key = { `${order.id}-${index}` }>
+                <GatsbyImage
+                    alt = { pizza.name }
+                    image = { pizza.image.asset.gatsbyImageData }
+                />
                 <h2>{pizza.name}</h2>
                 <p>
                     {price}
@@ -29,7 +28,7 @@ export const PizzaOrder: React.FC<PizzaOrderProps> = props => {
                         &times;
                     </button>
                 </p>
-            </MenuItemStyles>
+            </div>
         );
     });
 
