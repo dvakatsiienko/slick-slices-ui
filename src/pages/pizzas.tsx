@@ -9,11 +9,11 @@ const PizzasPage: React.FC<PageProps> = props => {
 
     return (
         <>
-            <SEO title={topping ? `Pizzas with ${topping}` : 'All Pizzas'} />
+            <SEO title = { topping ? `Pizzas with ${topping}` : 'All Pizzas' } />
 
             <ToppingsFilter />
 
-            <PizzaList pizzas={props.data} />
+            <PizzaList pizzas = { props.data } />
         </>
     );
 };

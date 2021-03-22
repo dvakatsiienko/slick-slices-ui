@@ -1,5 +1,5 @@
 /* Core */
-import { graphql } from 'gatsby';
+import { graphql }                       from 'gatsby';
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image';
 
 /* Components */
@@ -13,12 +13,12 @@ export const SlicemasterPage: React.FC = props => {
 
     return (
         <>
-            <SEO image={imageSrc} title={person.name} />
+            <SEO image = { imageSrc } title = { person.name } />
 
-            <div className="center">
-                <GatsbyImage alt={person.name} image={image} />
+            <div className = 'center'>
+                <GatsbyImage alt = { person.name } image = { image } />
                 <h2>
-                    <span className="mark">{person.name}</span>
+                    <span className = 'mark'>{person.name}</span>
                 </h2>
                 <p>{person.description}</p>
             </div>

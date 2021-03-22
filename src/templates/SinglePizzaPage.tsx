@@ -1,5 +1,5 @@
 /* Core */
-import { graphql } from 'gatsby';
+import { graphql }               from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 /* Components */
@@ -12,19 +12,19 @@ export const SinglePizzaPage: React.FC = props => {
     const { pizza } = props.data;
 
     const toppingsJSX = pizza.toppings.map(topping => (
-        <li key={topping.id}>{topping.name}</li>
+        <li key = { topping.id }>{topping.name}</li>
     ));
 
     const image = getImage(pizza.image.asset);
 
     return (
         <>
-            <SEO image={pizza.image.asset?.fluid?.src} title={pizza.name} />
+            <SEO image = { pizza.image.asset?.fluid?.src } title = { pizza.name } />
 
-            <div className={pizzaViewStyles}>
-                <GatsbyImage alt={pizza.name} image={image} />
+            <div className = { pizzaViewStyles }>
+                <GatsbyImage alt = { pizza.name } image = { image } />
                 <div>
-                    <h2 className="mark">{pizza.name}</h2>
+                    <h2 className = 'mark'>{pizza.name}</h2>
                     <ul>{toppingsJSX}</ul>
                 </div>
             </div>

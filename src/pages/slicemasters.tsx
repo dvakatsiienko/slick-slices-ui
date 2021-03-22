@@ -1,5 +1,5 @@
 /* Core */
-import { graphql, Link } from 'gatsby';
+import { graphql, Link }         from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 /* Components */
@@ -12,14 +12,14 @@ const SlicemasterPage = props => {
         const image = getImage(slicemaster.image.asset);
 
         return (
-            <div className="slicemaster" key={slicemaster.id}>
-                <Link to={`/slicemaster/${slicemaster.slug.current}`}>
+            <div className = 'slicemaster' key = { slicemaster.id }>
+                <Link to = { `/slicemaster/${slicemaster.slug.current}` }>
                     <h2>
-                        <span className="mark">{slicemaster.name}</span>
+                        <span className = 'mark'>{slicemaster.name}</span>
                     </h2>
                 </Link>
-                <GatsbyImage alt={slicemasters.name ?? ''} image={image} />
-                <p className="description">{slicemaster.description}</p>
+                <GatsbyImage alt = { slicemasters.name ?? '' } image = { image } />
+                <p className = 'description'>{slicemaster.description}</p>
             </div>
         );
     });
@@ -27,19 +27,19 @@ const SlicemasterPage = props => {
     return (
         <>
             <SEO
-                title={`Slicemasters - Page ${
+                title = { `Slicemasters - Page ${
                     props.pageContext.currentPage || 1
-                }`}
+                }` }
             />
 
             <Pagination
-                base="/slicemasters"
-                currentPage={props.pageContext.currentPage || 1}
-                pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
-                skip={props.pageContext.skip}
-                totalCount={slicemasters.totalCount}
+                base = '/slicemasters'
+                currentPage = { props.pageContext.currentPage || 1 }
+                pageSize = { parseInt(process.env.GATSBY_PAGE_SIZE) }
+                skip = { props.pageContext.skip }
+                totalCount = { slicemasters.totalCount }
             />
-            <div className="slicemasters-layout">{slicemastersJSX}</div>
+            <div className = 'slicemasters-layout'>{slicemastersJSX}</div>
         </>
     );
 };

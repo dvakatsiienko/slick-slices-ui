@@ -1,6 +1,6 @@
 :root {
     font-size: 10px;
-    background-image: url(../assets/images/bg.svg);
+    background-image: url(./assets/images/bg.svg);
     background-attachment: fixed;
     background-size: 450px;
     scrollbar-width: thin;
@@ -55,7 +55,7 @@
 
     & hr {
         height: 8px;
-        background-image: url(../assets/images/stripes.svg);
+        background-image: url(./assets/images/stripes.svg);
         background-size: 1500px;
         border: 0;
     }
