@@ -1,8 +1,8 @@
 /* Core */
-const path = require('path');
-const fetch = require('isomorphic-fetch');
+import path  from 'path';
+import fetch from 'isomorphic-fetch';
 
-exports.createPages = async params => {
+export const createPages = async params => {
     console.log('create pages...');
     await Promise.all([
         turnPizzasIntoPages(params),
@@ -11,7 +11,7 @@ exports.createPages = async params => {
     ]);
 };
 
-exports.sourceNodes = async params => {
+export const sourceNodes = async params => {
     await Promise.all([ fetchBeersAndTurnIntoNodes(params) ]);
 };
 

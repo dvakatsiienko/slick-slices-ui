@@ -1,6 +1,5 @@
 /* Core */
-import * as React from 'react';
-import { Link }   from 'gatsby';
+import { Link } from 'gatsby';
 
 /* Instruments */
 import { pagination as paginationStyles } from './styles.module.scss';
@@ -11,9 +10,6 @@ export const Pagination: React.FC<PaginationProps> = props => {
     const nextPage = props.currentPage + 1;
     const hasNextPage = nextPage <= totalPages;
     const hasPrevPage = prevPage >= 1;
-
-    console.log(totalPages);
-    console.log(props);
 
     const pagesJSX = [ ...Array(totalPages).keys() ].map((_, index) => {
         const pageNumber = index + 1;
