@@ -2,7 +2,7 @@
 import { Link } from 'gatsby';
 
 /* Instruments */
-import { pagination as paginationStyles } from './styles.module.scss';
+import * as styles from './styles.module.scss';
 
 export const Pagination: React.FC<PaginationProps> = props => {
     const totalPages = Math.ceil(props.totalCount / props.pageSize);
@@ -22,7 +22,7 @@ export const Pagination: React.FC<PaginationProps> = props => {
     });
 
     return (
-        <div className = { paginationStyles }>
+        <div className = { styles.pagination }>
             <Link aria-disabled = { !hasPrevPage } to = { `${props.base}/${prevPage}` }>
                 ←&nbsp;
                 <span className = 'word' title = 'Previous Page'>

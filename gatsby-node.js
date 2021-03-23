@@ -3,7 +3,6 @@ import path  from 'path';
 import fetch from 'isomorphic-fetch';
 
 export const createPages = async params => {
-    console.log('create pages...');
     await Promise.all([
         turnPizzasIntoPages(params),
         turnToppingsIntoPages(params),
