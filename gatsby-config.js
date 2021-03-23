@@ -33,6 +33,8 @@ module.exports = {
             options: {
                 '@/':           path.join(__dirname, 'src'),
                 '@/components': path.join(__dirname, 'src/components'),
+                '@/features':   path.join(__dirname, 'src/features'),
+                '@/utils':      path.join(__dirname, 'src/utils'),
 
                 // "layouts": path.join(__dirname, "src/layouts"),
                 // "templates": path.join(__dirname, "src/templates"),
