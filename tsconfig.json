@@ -2,7 +2,7 @@
     "extends": "tsconfig-dva",
 
     /* File inclusion */
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "public", ".cache"],
     "include": ["**/*.ts", "**/*.tsx"],
 
     "compilerOptions": {

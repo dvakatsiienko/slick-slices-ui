@@ -2,17 +2,17 @@
 import { PageProps } from 'gatsby';
 
 /* Components */
-import { HomePageSubgrid } from '../features/home-page';
+import { HomePageSubgrid } from '@/features/home-page';
 
 /* Instruments */
-import { useLatestData } from '../utils';
+import { useLatestData } from '@/utils';
 
 const HomePage: React.FC<PageProps> = () => {
     const result = useLatestData();
 
     return (
         <div className = 'center'>
-            <h1>The Best Pizza Downtown!</h1>
+            <h1>The Best Pizza Downtown 🍕</h1>
             <p>Open to 11am Every Single Day</p>
 
             <section className = 'home-layout'>
