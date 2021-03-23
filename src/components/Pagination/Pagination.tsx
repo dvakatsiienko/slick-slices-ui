@@ -12,6 +12,9 @@ export const Pagination: React.FC<PaginationProps> = props => {
     const hasNextPage = nextPage <= totalPages;
     const hasPrevPage = prevPage >= 1;
 
+    console.log(totalPages);
+    console.log(props);
+
     const pagesJSX = [ ...Array(totalPages).keys() ].map((_, index) => {
         const pageNumber = index + 1;
 
