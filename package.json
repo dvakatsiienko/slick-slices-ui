@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "NODE_OPTIONS=\"-r esm\" gatsby develop",
-        "build": "gatsby NODE_OPTIONS=\"-r esm\" build",
+        "build": "NODE_OPTIONS=\"-r esm\" gatsby build",
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "netlify": "netlify dev",
