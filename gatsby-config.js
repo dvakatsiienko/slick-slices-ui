@@ -19,16 +19,6 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
         {
-            resolve: 'gatsby-source-sanity',
-            options: {
-                projectId: 'zymjgahi',
-                dataset:   'production',
-                token:     process.env.SANITY_TOKEN,
-                watchMode: process.env.NODE_ENV === 'development',
-            },
-        },
-        {
-            // ? Better import statements
             resolve: 'gatsby-plugin-root-import',
             options: {
                 '@/':           path.join(__dirname, 'src'),
@@ -53,6 +43,15 @@ module.exports = {
             //     },
             // },
             // 'gatsby-plugin-graphql-codegen',
+        },
+        {
+            resolve: 'gatsby-source-sanity',
+            options: {
+                projectId: 'zymjgahi',
+                dataset:   'production',
+                token:     process.env.SANITY_TOKEN,
+                watchMode: process.env.NODE_ENV === 'development',
+            },
         },
     ],
 };
