@@ -1,8 +1,0 @@
-[build]
-    functions = "functions/"
-
-[build.production]
-NODE_VERSION = "lts/*"
-
-[[plugins]]
-package = "@netlify/plugin-gatsby"

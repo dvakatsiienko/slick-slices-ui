@@ -31,9 +31,6 @@ export const usePizza = pizzas => {
             ...values,
         };
 
-        console.log(process.env.GATSBY_NETLIFY_SERVERLESS_URL);
-        console.log(`${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`);
-
         try {
             const response = await fetch('/api/place-order', {
                 method:  'POST',
@@ -41,12 +38,7 @@ export const usePizza = pizzas => {
                 body:    JSON.stringify(body),
             });
 
-            const res = await response.json();
-
-            console.log('response', response);
-            console.log('res', res);
-
-            const result = JSON.parse(await response.text());
+            const result = await response.json();
 
             if (response.status >= 400 && response.status < 600) {
                 setError(result.message);

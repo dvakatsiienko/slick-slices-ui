@@ -1,10 +1,10 @@
 /* Core */
-import React                     from 'react';
-import { graphql, PageProps }    from 'gatsby';
+import React from 'react';
+import { graphql, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useForm }               from 'react-hook-form';
-import { yupResolver }           from '@hookform/resolvers/yup';
-import * as yup                  from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 /* Components */
 import { SEO, PizzaOrder } from '../components';
@@ -83,12 +83,6 @@ const OrderPage: React.FC<PageProps> = props => {
                     <label htmlFor = 'email'>
                         Email {form.errors.email && form.errors.email?.message}
                         <input name = 'email' ref = { form.register() } type = 'text' />
-                        <input
-                            className = 'mapleSyrup'
-                            name = 'mapleSyrup'
-                            ref = { form.register() }
-                            type = 'text'
-                        />
                     </label>
                 </fieldset>
 
@@ -133,16 +127,14 @@ const OrderPage: React.FC<PageProps> = props => {
 
 /* Helpers */
 const schema: yup.SchemaOf<FormShape> = yup.object().shape({
-    name:       yup.string().required('is required'),
-    email:      yup.string().email('must be valid email').required('is required'),
-    mapleSyrup: yup.string(),
+    name:  yup.string().required('is required'),
+    email: yup.string().email('must be valid email').required('is required'),
 });
 
 /* Types */
 interface FormShape {
     name: string;
     email: string;
-    mapleSyrup: string;
 }
 
 export const query = graphql`
