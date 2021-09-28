@@ -1,13 +1,13 @@
 @font-face {
     font-family: FrenchFries;
-    src: url(./assets/fonts/frenchfries.woff);
+    src: url(/assets/fonts/frenchfries.woff);
 }
 
 html {
     font-family: FrenchFries, system-ui;
     font-size: 10px;
     color: var(--black);
-    background-image: url(./assets/images/bg.svg);
+    background-image: url(/assets/images/bg.svg);
     background-attachment: fixed;
     background-size: 450px;
     scrollbar-width: thin;
@@ -61,7 +61,7 @@ html {
 
         & hr {
             height: 8px;
-            background-image: url(./assets/images/stripes.svg);
+            background-image: url(/assets/images/stripes.svg);
             background-size: 1500px;
             border: 0;
         }

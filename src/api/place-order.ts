@@ -3,21 +3,17 @@ import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 import nodemailer from 'nodemailer';
 import waait from 'waait';
 
-// eslint-disable-next-line
-const MAIL_HOST = process.env.MAIL_HOST;
-// eslint-disable-next-line
-const MAIL_USER = process.env.MAIL_USER;
-// eslint-disable-next-line
-const MAIL_PASSWORD = process.env.MAIL_PASSWORD;
+/* eslint-disable prefer-destructuring */
+const host = process.env.MAIL_HOST;
+const user = process.env.MAIL_USER;
+const pass = process.env.MAIL_PASSWORD;
+/* eslint-enable prefer-destructuring */
 
 const mailConfig = {
-    host:   MAIL_HOST,
+    host,
     port:   587,
     secure: false,
-    auth:   {
-        user: MAIL_USER,
-        pass: MAIL_PASSWORD,
-    },
+    auth:   { user, pass },
 };
 
 const REQUIRED_FIELDS = [ 'email', 'name', 'order' ];
@@ -60,8 +56,6 @@ export default async function handler(
             }),
         );
     }
-
-    console.log('SUCCESS');
 
     return res.status(200).json(JSON.stringify({ message: 'Success' }));
 }

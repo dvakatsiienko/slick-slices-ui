@@ -18,6 +18,7 @@ fragment testFragment on SanityPizza {
     }
     image {
         asset {
+            id
             fluid(maxWidth: 400) {
                 ...GatsbySanityImageFluid
             }

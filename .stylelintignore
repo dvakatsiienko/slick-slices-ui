@@ -1,2 +1,2 @@
-src/theme/assets/fonts
+static/assets/fonts
 src/features/home-page/SubgridList.tsx
