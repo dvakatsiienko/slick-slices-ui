@@ -12,7 +12,6 @@ module.exports = {
         twitter:     '@slicksSlices',
     },
     plugins: [
-        'gatsby-plugin-graphql-config',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         'gatsby-plugin-image',
@@ -33,16 +32,6 @@ module.exports = {
                 // "src": path.join(__dirname, 'src'),
                 // "pages": path.join(__dirname, 'src/pages')
             },
-            // ? TS support
-            // {
-            //     resolve: 'gatsby-plugin-typegen',
-            //     options: {
-            //         emitSchema: {
-            //             'src/__generated__/gatsby-schema.graphql': true,
-            //         },
-            //     },
-            // },
-            // 'gatsby-plugin-graphql-codegen',
         },
         {
             resolve: 'gatsby-source-sanity',
