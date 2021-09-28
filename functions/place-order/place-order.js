@@ -7,7 +7,7 @@ const { MAIL_HOST, MAIL_USER, MAIL_PASSWORD } = process.env;
 const mailConfig = {
     host:   MAIL_HOST,
     port:   587,
-    secure: true,
+    secure: false,
     auth:   {
         user: MAIL_USER,
         pass: MAIL_PASSWORD,

@@ -31,6 +31,9 @@ export const usePizza = pizzas => {
             ...values,
         };
 
+        console.log(process.env.GATSBY_NETLIFY_SERVERLESS_URL);
+        console.log(`${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`);
+
         try {
             const response = await fetch(
                 `${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`,
@@ -50,6 +53,8 @@ export const usePizza = pizzas => {
                 setError(null);
                 setMessage('Success! Come on down for your Pizza!');
             }
+        } catch (err) {
+            console.log(err);
         } finally {
             setLoading(false);
         }
