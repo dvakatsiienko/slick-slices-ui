@@ -5,7 +5,7 @@ import { useState, useContext } from 'react';
 import { OrderContext } from '../components';
 
 /* Instruments */
-import { calculateOrderTotal }  from './calculateOrderTotal';
+import { calculateOrderTotal } from './calculateOrderTotal';
 import { attachNamesAndPrices } from './attachNamesAndPrices';
 
 export const usePizza = pizzas => {

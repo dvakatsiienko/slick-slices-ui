@@ -1,5 +1,5 @@
 {
-    "extends": "tsconfig-dva",
+    // "extends": "tsconfig-dva",
 
     /* File inclusion */
     "exclude": ["node_modules", "public", ".cache"],
@@ -8,6 +8,40 @@
     "compilerOptions": {
         /* Module resolution */
         "baseUrl": ".",
-        "paths": { "@/*": ["src/*"] }
+        "paths": { "@/*": ["src/*"] },
+
+        /* Project options */
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "allowJs": true,
+        "jsx": "preserve",
+        "declaration": true,
+        "outDir": "dist/ts",
+        "removeComments": true,
+        "noEmit": true,
+
+        /* Strict checks */
+        "strict": false,
+        "noImplicitAny": false,
+
+        /* Module resolution */
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+
+        /* Source maps */
+        "sourceMap": true,
+
+        /* Linter checks */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+
+        /* Advanced */
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "allowUnusedLabels": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true
     }
 }
