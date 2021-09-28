@@ -35,14 +35,16 @@ export const usePizza = pizzas => {
         console.log(`${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`);
 
         try {
-            const response = await fetch(
-                `${process.env.GATSBY_NETLIFY_SERVERLESS_URL}/place-order`,
-                {
-                    method:  'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body:    JSON.stringify(body),
-                },
-            );
+            const response = await fetch('/api/place-order', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify(body),
+            });
+
+            const res = await response.json();
+
+            console.log('response', response);
+            console.log('res', res);
 
             const result = JSON.parse(await response.text());
 
