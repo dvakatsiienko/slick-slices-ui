@@ -4,11 +4,11 @@ import nodemailer from 'nodemailer';
 import waait from 'waait';
 
 // eslint-disable-next-line
-const MAIL_HOST = process.env.GATSBY_MAIL_HOST;
+const MAIL_HOST = process.env.MAIL_HOST;
 // eslint-disable-next-line
-const MAIL_USER = process.env.GATSBY_MAIL_USER;
+const MAIL_USER = process.env.MAIL_USER;
 // eslint-disable-next-line
-const MAIL_PASSWORD = process.env.GATSBY_MAIL_PASSWORD;
+const MAIL_PASSWORD = process.env.MAIL_PASSWORD;
 
 const mailConfig = {
     host:   MAIL_HOST,
