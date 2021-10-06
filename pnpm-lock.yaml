@@ -15,6 +15,7 @@ specifiers:
   eslint-config-dva: 0.0.13
   gatsby: 3.14.2
   gatsby-plugin-image: 1.14.1
+  gatsby-plugin-pnpm: 1.2.8
   gatsby-plugin-react-helmet: 4.14.0
   gatsby-plugin-root-import: 2.0.7
   gatsby-plugin-sass: 4.14.0
@@ -82,6 +83,7 @@ devDependencies:
   babel-loader: 8.2.2
   eslint: 7.32.0
   eslint-config-dva: 0.0.13_typescript@4.4.3
+  gatsby-plugin-pnpm: 1.2.8_gatsby@3.14.2
   graphql: 15.6.1
   husky: 7.0.2
   npm-run-all: 4.1.5
@@ -7116,6 +7118,16 @@ packages:
       - supports-color
     dev: false
 
+  /gatsby-plugin-pnpm/1.2.8_gatsby@3.14.2:
+    resolution: {integrity: sha512-rcjkU6Dvl8jO+SJFlvynYnTr2AHsYwSaRZvoxv/Y+pauZWZKjsMqjaiec7qGqomvbHGPuRfv8Fy9y5JPG/PW6Q==}
+    peerDependencies:
+      gatsby: ~2.x.x || ~3.x.x
+    dependencies:
+      gatsby: 3.14.2_bd7797d63db473de6e2318609a63c933
+      lodash.get: 4.4.2
+      lodash.uniq: 4.5.0
+    dev: true
+
   /gatsby-plugin-react-helmet/4.14.0_gatsby@3.14.2+react-helmet@6.1.0:
     resolution: {integrity: sha512-IpLC0mWRNP+E0ezDBXHciVATW+mv2MCvCP3lEYtFQ8mfcm3K//MpeynouNQSPCXn9cH7fr5w0Y355Wl5w1kw1A==}
     engines: {node: '>=12.13.0'}
@@ -9430,7 +9442,6 @@ packages:
 
   /lodash.uniq/4.5.0:
     resolution: {integrity: sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=}
-    dev: false
 
   /lodash.without/4.4.0:
     resolution: {integrity: sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=}

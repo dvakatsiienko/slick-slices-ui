@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 /* Core */
 const path = require('path');
 const dotenv = require('dotenv');
@@ -13,6 +16,7 @@ module.exports = {
         twitter:     '@slicksSlices',
     },
     plugins: [
+        'gatsby-plugin-pnpm',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         'gatsby-plugin-image',

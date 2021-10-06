@@ -50,6 +50,7 @@
         "babel-loader": "8.2.2",
         "eslint": "7.32.0",
         "eslint-config-dva": "0.0.13",
+        "gatsby-plugin-pnpm": "1.2.8",
         "graphql": "15.6.1",
         "husky": "7.0.2",
         "npm-run-all": "4.1.5",
