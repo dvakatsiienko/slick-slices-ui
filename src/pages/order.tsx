@@ -8,6 +8,7 @@ import * as yup from 'yup';
 
 /* Components */
 import { SEO, PizzaOrder } from '../components';
+import { Fieldset, Input } from '../components/Form';
 
 /* Instruments */
 import {
@@ -17,17 +18,24 @@ import {
     calculateOrderTotal
 } from '../utils';
 
+const __DEV__ = process.env.NODE_ENV === 'development';
+const MAIL_USER = process.env.GATSBY_MAIL_USER;
+
 const OrderPage: React.FC<PageProps> = props => {
     const { nodes: pizzas } = props.data.pizzas;
 
     const form = useForm<FormShape>({
-        mode:     'onTouched',
-        resolver: yupResolver(schema),
+        mode:          'all',
+        resolver:      yupResolver(schema),
+        defaultValues: {
+            name:  __DEV__ ? 'Ramona' : '',
+            email: __DEV__ ? MAIL_USER : '',
+        },
     });
 
     const pizzaControl = usePizza(pizzas);
 
-    const login = form.handleSubmit((values, event) => {
+    const placeOrder = form.handleSubmit(async (values, event) => {
         event.preventDefault();
 
         pizzaControl.submitOrder(values);
@@ -73,18 +81,19 @@ const OrderPage: React.FC<PageProps> = props => {
         <>
             <SEO title = 'Order a Pizza!' />
 
-            <form className = 'order-form' onSubmit = { login }>
-                <fieldset disabled = { pizzaControl.loading }>
+            <form className = 'order-form' onSubmit = { placeOrder }>
+                <Fieldset disabled = { pizzaControl.loading }>
                     <legend>You Info</legend>
-                    <label htmlFor = 'name'>
-                        Name {form.errors.name && form.errors.name?.message}
-                        <input name = 'name' ref = { form.register() } type = 'text' />
-                    </label>
-                    <label htmlFor = 'email'>
-                        Email {form.errors.email && form.errors.email?.message}
-                        <input name = 'email' ref = { form.register() } type = 'text' />
-                    </label>
-                </fieldset>
+
+                    <Input
+                        formState = { form.formState }
+                        register = { form.register('name') }
+                    />
+                    <Input
+                        formState = { form.formState }
+                        register = { form.register('email') }
+                    />
+                </Fieldset>
 
                 <fieldset className = 'menu' disabled = { pizzaControl.loading }>
                     <legend>Menu</legend>
@@ -127,8 +136,8 @@ const OrderPage: React.FC<PageProps> = props => {
 
 /* Helpers */
 const schema: yup.SchemaOf<FormShape> = yup.object().shape({
-    name:  yup.string().required('is required'),
-    email: yup.string().email('must be valid email').required('is required'),
+    name:  yup.string().required('required'),
+    email: yup.string().email('must be valid email').required('required'),
 });
 
 /* Types */

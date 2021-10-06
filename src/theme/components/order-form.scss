@@ -17,12 +17,7 @@
 
         & label {
             display: grid;
-            gap: 1rem;
-            align-content: start;
-
-            & + label {
-                margin-top: 1rem;
-            }
+            gap: 3px;
         }
 
         &.order,
@@ -36,9 +31,18 @@
             flex-direction: column;
         }
 
+        & .error {
+            font-weight: 500;
+            color: var(--red);
+        }
+
         & button:disabled {
             cursor: not-allowed;
             background-color: grey;
+        }
+
+        & input:disabled {
+            cursor: not-allowed;
         }
     }
 
