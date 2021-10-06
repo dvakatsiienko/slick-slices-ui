@@ -84,6 +84,10 @@ async function fetchBeersAndTurnIntoNodes(params) {
     const beers = await response.json();
 
     for (const beer of beers) {
+        if (beer.id === '6666666' || beer.id === '55555555') {
+            continue; // eslint-disable-line no-continue
+        }
+
         const nodeMeta = {
             id:       createNodeId(`beer-${beer.name}`),
             parent:   null,
@@ -94,6 +98,7 @@ async function fetchBeersAndTurnIntoNodes(params) {
                 contentDigest: createContentDigest(beer),
             },
         };
+
         actions.createNode({
             ...beer,
             ...nodeMeta,
