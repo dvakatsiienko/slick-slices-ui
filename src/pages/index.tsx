@@ -2,6 +2,7 @@
 import { PageProps } from 'gatsby';
 
 /* Components */
+import { SEO } from '../components';
 import { HomePageSubgrid } from '@/features/home-page';
 
 /* Instruments */
@@ -12,6 +13,8 @@ const HomePage: React.FC<PageProps> = () => {
 
     return (
         <div className = 'center'>
+            <SEO title = 'Slick Slices' />
+
             <h1>The Best Pizza Downtown 🍕</h1>
             <p>Open to 11am Every Single Day</p>
 
