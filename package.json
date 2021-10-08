@@ -33,7 +33,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-helmet": "6.1.0",
-        "react-hook-form": "7.17.1",
+        "react-hook-form": "7.17.2",
         "release-it": "14.11.6",
         "sass": "1.42.1",
         "waait": "1.0.5",
