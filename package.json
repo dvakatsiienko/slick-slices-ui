@@ -35,7 +35,7 @@
         "react-helmet": "6.1.0",
         "react-hook-form": "7.17.2",
         "release-it": "14.11.6",
-        "sass": "1.42.1",
+        "sass": "1.43.2",
         "waait": "1.0.5",
         "yup": "0.32.11"
     },

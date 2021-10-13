@@ -35,7 +35,7 @@ specifiers:
   react-helmet: 6.1.0
   react-hook-form: 7.17.2
   release-it: 14.11.6
-  sass: 1.42.1
+  sass: 1.43.2
   stylelint: 13.13.1
   stylelint-config-recess-order: 2.5.0
   stylelint-config-standard: 22.0.0
@@ -56,7 +56,7 @@ dependencies:
   gatsby-plugin-image: 1.14.1_20122c94bcd7d370348f651dcb12acf2
   gatsby-plugin-react-helmet: 4.14.0_gatsby@3.14.2+react-helmet@6.1.0
   gatsby-plugin-root-import: 2.0.7_gatsby@3.14.2
-  gatsby-plugin-sass: 4.14.0_gatsby@3.14.2+sass@1.42.1
+  gatsby-plugin-sass: 4.14.0_gatsby@3.14.2+sass@1.43.2
   gatsby-plugin-sharp: 3.14.1_gatsby@3.14.2
   gatsby-source-sanity: 7.0.7_2e94e9504ca1ff0123fc35233632b0ee
   gatsby-transformer-sharp: 3.14.0_0ee692c4b307b5824b0f92a79d04660d
@@ -68,7 +68,7 @@ dependencies:
   react-helmet: 6.1.0_react@17.0.2
   react-hook-form: 7.17.2_react@17.0.2
   release-it: 14.11.6
-  sass: 1.42.1
+  sass: 1.43.2
   waait: 1.0.5
   yup: 0.32.11
 
@@ -7241,7 +7241,7 @@ packages:
       gatsby: 3.14.2_bd7797d63db473de6e2318609a63c933
     dev: false
 
-  /gatsby-plugin-sass/4.14.0_gatsby@3.14.2+sass@1.42.1:
+  /gatsby-plugin-sass/4.14.0_gatsby@3.14.2+sass@1.43.2:
     resolution: {integrity: sha512-dnsdU7Nf0BQhNuuyoS67tA6zWucDFkfHBEsURuD9rOFxizdBxZdth81vqnxzuLQBJcTnqnprDhGPhXYBOjCJsQ==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
@@ -7251,8 +7251,8 @@ packages:
       '@babel/runtime': 7.15.4
       gatsby: 3.14.2_bd7797d63db473de6e2318609a63c933
       resolve-url-loader: 3.1.4
-      sass: 1.42.1
-      sass-loader: 10.2.0_sass@1.42.1
+      sass: 1.43.2
+      sass-loader: 10.2.0_sass@1.43.2
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -12442,7 +12442,7 @@ packages:
     resolution: {integrity: sha1-wih9MZJXffUXrLvW0UUanDw5FPU=}
     dev: false
 
-  /sass-loader/10.2.0_sass@1.42.1:
+  /sass-loader/10.2.0_sass@1.43.2:
     resolution: {integrity: sha512-kUceLzC1gIHz0zNJPpqRsJyisWatGYNFRmv2CKZK2/ngMJgLqxTbXwe/hJ85luyvZkgqU3VlJ33UVF2T/0g6mw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -12461,13 +12461,13 @@ packages:
       klona: 2.0.4
       loader-utils: 2.0.0
       neo-async: 2.6.2
-      sass: 1.42.1
+      sass: 1.43.2
       schema-utils: 3.1.1
       semver: 7.3.5
     dev: false
 
-  /sass/1.42.1:
-    resolution: {integrity: sha512-/zvGoN8B7dspKc5mC6HlaygyCBRvnyzzgD5khiaCfglWztY99cYoiTUksVx11NlnemrcfH5CEaCpsUKoW0cQqg==}
+  /sass/1.43.2:
+    resolution: {integrity: sha512-DncYhjl3wBaPMMJR0kIUaH3sF536rVrOcqqVGmTZHQRRzj7LQlyGV7Mb8aCKFyILMr5VsPHwRYtyKpnKYlmQSQ==}
     engines: {node: '>=8.9.0'}
     hasBin: true
     dependencies:
