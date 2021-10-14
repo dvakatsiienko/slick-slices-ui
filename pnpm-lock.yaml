@@ -17,9 +17,9 @@ specifiers:
   gatsby-plugin-image: 1.14.1
   gatsby-plugin-pnpm: 1.2.8
   gatsby-plugin-react-helmet: 4.14.0
-  gatsby-plugin-root-import: 2.0.7
   gatsby-plugin-sass: 4.14.0
   gatsby-plugin-sharp: 3.14.1
+  gatsby-plugin-tsconfig-paths: 1.0.3
   gatsby-source-sanity: 7.0.7
   gatsby-transformer-sharp: 3.14.0
   graphql: 15.6.1
@@ -55,7 +55,6 @@ dependencies:
   gatsby: 3.14.2_8e3522129ef2816b3c737f17aecb3a9d
   gatsby-plugin-image: 1.14.1_20122c94bcd7d370348f651dcb12acf2
   gatsby-plugin-react-helmet: 4.14.0_gatsby@3.14.2+react-helmet@6.1.0
-  gatsby-plugin-root-import: 2.0.7_gatsby@3.14.2
   gatsby-plugin-sass: 4.14.0_gatsby@3.14.2+sass@1.43.2
   gatsby-plugin-sharp: 3.14.1_gatsby@3.14.2
   gatsby-source-sanity: 7.0.7_2e94e9504ca1ff0123fc35233632b0ee
@@ -74,7 +73,7 @@ dependencies:
 
 devDependencies:
   '@babel/runtime': 7.15.4
-  '@graphql-codegen/cli': 2.2.1_graphql@15.6.1+typescript@4.4.3
+  '@graphql-codegen/cli': 2.2.1_graphql@15.6.1+typescript@4.4.4
   '@graphql-codegen/typescript': 2.2.4_graphql@15.6.1
   '@graphql-codegen/typescript-operations': 2.1.8_graphql@15.6.1
   '@types/isomorphic-fetch': 0.0.35
@@ -82,8 +81,9 @@ devDependencies:
   '@types/react-helmet': 6.1.4
   babel-loader: 8.2.2
   eslint: 8.0.1
-  eslint-config-dva: 0.0.13_typescript@4.4.3
+  eslint-config-dva: 0.0.13_typescript@4.4.4
   gatsby-plugin-pnpm: 1.2.8_gatsby@3.14.2
+  gatsby-plugin-tsconfig-paths: 1.0.3_gatsby@3.14.2
   graphql: 15.6.1
   husky: 7.0.2
   npm-run-all: 4.1.5
@@ -1487,7 +1487,8 @@ packages:
       querystring: 0.2.1
       strip-ansi: 6.0.1
     dev: false
-  /@graphql-codegen/cli/2.2.1_graphql@15.6.1+typescript@4.4.3:
+
+  /@graphql-codegen/cli/2.2.1_graphql@15.6.1+typescript@4.4.4:
     resolution: {integrity: sha512-pFb/41kUpUhC40O/ZgdhqsUaGO2NPYBxQNLNR5frRhIIpXkjk8Uj2BstUlAmK0Nz2bkSiC4k5Q6aGW7OBkxcaA==}
     hasBin: true
     peerDependencies:
@@ -5829,7 +5830,6 @@ packages:
     dependencies:
       graceful-fs: 4.2.8
       tapable: 2.2.1
-    dev: false
 
   /enquirer/2.3.6:
     resolution: {integrity: sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==}
@@ -6919,6 +6919,18 @@ packages:
   /flatted/3.2.2:
     resolution: {integrity: sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==}
 
+  /follow-redirects/1.14.4_debug@2.6.9:
+    resolution: {integrity: sha512-zwGkiSXC1MUJG/qmeIFH2HBJx9u0V46QGUe3YR1fXG8bXQxq7fLj0RjLZQ5nubr9qNJUZrH+xUcwXEoXNpfS+g==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 2.6.9
+    dev: false
+
   /follow-redirects/1.14.4_debug@3.2.7:
     resolution: {integrity: sha512-zwGkiSXC1MUJG/qmeIFH2HBJx9u0V46QGUe3YR1fXG8bXQxq7fLj0RjLZQ5nubr9qNJUZrH+xUcwXEoXNpfS+g==}
     engines: {node: '>=4.0'}
@@ -7232,14 +7244,6 @@ packages:
       react-helmet: 6.1.0_react@17.0.2
     dev: false
 
-  /gatsby-plugin-root-import/2.0.7_gatsby@3.14.2:
-    resolution: {integrity: sha512-SW+JaSHJCAPNadh8qaTKRxEDKUZr+yMq20Sd1prDwW3FqQfxozg60Bz8K/te9pal/8NYRoJH4TzO5J0GTN/Lbg==}
-    peerDependencies:
-      gatsby: ^2 || ^3
-    dependencies:
-      gatsby: 3.14.2_8e3522129ef2816b3c737f17aecb3a9d
-    dev: false
-
   /gatsby-plugin-sass/4.14.0_gatsby@3.14.2+sass@1.43.2:
     resolution: {integrity: sha512-dnsdU7Nf0BQhNuuyoS67tA6zWucDFkfHBEsURuD9rOFxizdBxZdth81vqnxzuLQBJcTnqnprDhGPhXYBOjCJsQ==}
     engines: {node: '>=12.13.0'}
@@ -7284,6 +7288,15 @@ packages:
       svgo: 1.3.2
       uuid: 3.4.0
     dev: false
+
+  /gatsby-plugin-tsconfig-paths/1.0.3_gatsby@3.14.2:
+    resolution: {integrity: sha512-uALyXpLHT9tujMd84q5Pbw0iOnKcw7NTdlk/9CG6wtnkkDdl++B5ioppv+xMMzi5LHTDVmY8z3CNumlsTpvL6A==}
+    peerDependencies:
+      gatsby: ~2.x.x || ~3.x.x
+    dependencies:
+      gatsby: 3.14.2_8e3522129ef2816b3c737f17aecb3a9d
+      tsconfig-paths-webpack-plugin: 3.5.1
+    dev: true
 
   /gatsby-plugin-typescript/3.14.0_gatsby@3.14.2:
     resolution: {integrity: sha512-gQVkLFPvO9g+O+DdY9nw+1SAelF2yOQ+CqpFJ9aDllf/JUyxNbajND7nbYkLCiDja86yi3ZNCkZR2yp8qWZnpQ==}
@@ -7691,7 +7704,7 @@ packages:
       create-error-class: 3.0.2
       debug: 2.6.9
       decompress-response: 3.3.0
-      follow-redirects: 1.14.4_debug@4.3.2
+      follow-redirects: 1.14.4_debug@2.6.9
       form-urlencoded: 2.0.9
       in-publish: 2.0.1
       into-stream: 3.1.0
@@ -13491,7 +13504,6 @@ packages:
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
-    dev: false
 
   /tar-fs/2.1.1:
     resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}
@@ -13722,6 +13734,14 @@ packages:
       typescript: 4.2.3
     dependencies:
       typescript: 4.4.4
+    dev: true
+
+  /tsconfig-paths-webpack-plugin/3.5.1:
+    resolution: {integrity: sha512-n5CMlUUj+N5pjBhBACLq4jdr9cPTitySCjIosoQm0zwK99gmrcTGAfY9CwxRFT9+9OleNWXPRUcxsKP4AYExxQ==}
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.8.3
+      tsconfig-paths: 3.11.0
     dev: true
 
   /tsconfig-paths/3.11.0:

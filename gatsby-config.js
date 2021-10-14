@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 /* Core */
-const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '.env' });
@@ -22,22 +21,7 @@ module.exports = {
         'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
-        {
-            resolve: 'gatsby-plugin-root-import',
-            options: {
-                '@/':           path.join(__dirname, 'src'),
-                '@/components': path.join(__dirname, 'src/components'),
-                '@/features':   path.join(__dirname, 'src/features'),
-                '@/utils':      path.join(__dirname, 'src/utils'),
-
-                // "layouts": path.join(__dirname, "src/layouts"),
-                // "templates": path.join(__dirname, "src/templates"),
-                // "scss": path.join(__dirname, "src/scss"),
-                // "types": path.join(__dirname, "src/types"),
-                // "src": path.join(__dirname, 'src'),
-                // "pages": path.join(__dirname, 'src/pages')
-            },
-        },
+        'gatsby-plugin-tsconfig-paths',
         {
             resolve: 'gatsby-source-sanity',
             options: {

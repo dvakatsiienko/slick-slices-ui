@@ -84,7 +84,7 @@ async function fetchBeersAndTurnIntoNodes(params) {
     const beers = await response.json();
 
     for (const beer of beers) {
-        if (beer.id === '6666666' || beer.id === '55555555') {
+        if (typeof beer.rating === 'string') {
             continue; // eslint-disable-line no-continue
         }
 
