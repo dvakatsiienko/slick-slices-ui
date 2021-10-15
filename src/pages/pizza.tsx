@@ -7,7 +7,7 @@ import { PizzaList, ToppingsFilter, SEO } from '../components';
 /* Instruments */
 import * as gql from '../../graphql-types';
 
-const PizzasPage: PizzasPageProps = props => {
+const PizzaPage: PizzaPageProps = props => {
     const { topping } = props.pageContext;
 
     const title = topping ? `Pizzas with ${topping}` : 'All Pizzas';
@@ -55,11 +55,11 @@ export const query = graphql`
 `;
 
 /* Types */
-type PizzasPageProps = React.FC<
+type PizzaPageProps = React.FC<
     PageProps<gql.AllSanityPizzaQuery, PizzasPageContext>
 >;
 interface PizzasPageContext {
     topping: string;
 }
 
-export default PizzasPage;
+export default PizzaPage;

@@ -49,11 +49,11 @@ async function turnPizzasIntoPages(params) {
 async function turnToppingsIntoPages(params) {
     const { graphql, actions } = params;
 
-    const toppingPage = path.resolve('./src/pages/pizzas.tsx');
+    const toppingPage = path.resolve('./src/pages/pizza.tsx');
 
     const result = await graphql(`
-        query {
-            toppings: allSanityTopping {
+        query AllSanityTopping {
+            allSanityTopping {
                 nodes {
                     id
                     name
@@ -64,7 +64,7 @@ async function turnToppingsIntoPages(params) {
 
     const { data } = result;
 
-    data.toppings.nodes.forEach(topping => {
+    data.allSanityTopping.nodes.forEach(topping => {
         const toppingName = topping.name.toLowerCase();
 
         actions.createPage({
