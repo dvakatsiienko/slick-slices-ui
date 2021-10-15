@@ -1,5 +1,5 @@
 /* Core */
-import { graphql }               from 'gatsby';
+import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 /* Components */
@@ -33,7 +33,7 @@ export const SinglePizzaPage: React.FC = props => {
 };
 
 const query = graphql`
-    query($slug: String!) {
+    query ($slug: String!) {
         pizza: sanityPizza(slug: { current: { eq: $slug } }) {
             id
             name

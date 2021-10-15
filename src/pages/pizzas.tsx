@@ -4,12 +4,17 @@ import { graphql, PageProps } from 'gatsby';
 /* Components */
 import { PizzaList, ToppingsFilter, SEO } from '../components';
 
-const PizzasPage: React.FC<PageProps> = props => {
+/* Instruments */
+import * as gql from '../../graphql-types';
+
+const PizzasPage: PizzasPageProps = props => {
     const { topping } = props.pageContext;
+
+    const title = topping ? `Pizzas with ${topping}` : 'All Pizzas';
 
     return (
         <>
-            <SEO title = { topping ? `Pizzas with ${topping}` : 'All Pizzas' } />
+            <SEO title = { title } />
 
             <ToppingsFilter />
 
@@ -26,23 +31,35 @@ export const query = graphql`
             }
         ) {
             nodes {
-                id
-                name
-                slug {
-                    current
-                }
-                toppings {
-                    id
-                    name
-                }
-                image {
-                    asset {
-                        gatsbyImageData(placeholder: BLURRED)
-                    }
-                }
+                ...SanityPizzaFragment
+            }
+        }
+    }
+
+    fragment SanityPizzaFragment on SanityPizza {
+        id
+        name
+        slug {
+            current
+        }
+        toppings {
+            id
+            name
+        }
+        image {
+            asset {
+                gatsbyImageData(placeholder: BLURRED)
             }
         }
     }
 `;
+
+/* Types */
+type PizzasPageProps = React.FC<
+    PageProps<gql.AllSanityPizzaQuery, PizzasPageContext>
+>;
+interface PizzasPageContext {
+    topping: string;
+}
 
 export default PizzasPage;

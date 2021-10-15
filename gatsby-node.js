@@ -49,7 +49,7 @@ async function turnPizzasIntoPages(params) {
 async function turnToppingsIntoPages(params) {
     const { graphql, actions } = params;
 
-    const toppingTemplate = path.resolve('./src/pages/pizzas.tsx');
+    const toppingPage = path.resolve('./src/pages/pizzas.tsx');
 
     const result = await graphql(`
         query {
@@ -65,11 +65,13 @@ async function turnToppingsIntoPages(params) {
     const { data } = result;
 
     data.toppings.nodes.forEach(topping => {
+        const toppingName = topping.name.toLowerCase();
+
         actions.createPage({
-            path:      `topping/${topping.name.toLowerCase()}`,
-            component: toppingTemplate,
+            path:      `topping/${toppingName}`,
+            component: toppingPage,
             context:   {
-                topping:      topping.name,
+                topping:      toppingName,
                 toppingRegex: `/${topping.name}/i`,
             },
         });

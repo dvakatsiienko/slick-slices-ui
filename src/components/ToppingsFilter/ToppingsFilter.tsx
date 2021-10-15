@@ -1,32 +1,17 @@
 /* Core */
-import * as React                        from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 
 /* Instruments */
-import { toppingsFilter as toppingsFilterStyles } from './styles.module.scss';
+import * as styles from './styles.module.scss';
+
+/* Instruments */
+import * as gql from '@/../graphql-types';
+import { usePizzaToppingsQuery } from './usePizzaToppingsQuery';
 
 export const ToppingsFilter: React.FC = () => {
-    const data = useStaticQuery(
-        graphql`
-            query {
-                pizzas: allSanityPizza {
-                    nodes {
-                        id
-                        name
-                        toppings {
-                            id
-                            name
-                            vegetarian
-                        }
-                    }
-                }
-            }
-        `,
-    );
+    const pizzaToppingsQuery = usePizzaToppingsQuery();
 
-    const { pizzas } = data;
-
-    const toppingsWithCounts = countPizzasInToppings(pizzas.nodes);
+    const toppingsWithCounts = countPizzasInToppings(pizzaToppingsQuery);
 
     const toppingLinks = toppingsWithCounts.map(topping => {
         return (
@@ -34,46 +19,59 @@ export const ToppingsFilter: React.FC = () => {
                 key = { topping.id }
                 to = { `/topping/${topping.name.toLowerCase()}` }
             >
-                <span className = 'name'>{topping.name}</span>
-                <span className = 'count'>{topping.count}</span>
+                {topping.name} ({topping.count})
             </Link>
         );
     });
 
     return (
-        <div className = { toppingsFilterStyles }>
-            <Link to = '/pizzas'>
-                <span className = 'name'>All</span>
-                <span className = 'count'>{pizzas.nodes.length}</span>
-            </Link>
+        <div className = { styles.toppingsFilter }>
+            <Link to = '/pizzas'>All toppings ({toppingsWithCounts.length})</Link>
             {toppingLinks}
         </div>
     );
 };
 
 /* Helpers */
-function countPizzasInToppings(pizzas) {
-    const toppings = pizzas.map(pizza => pizza.toppings).flat();
+function countPizzasInToppings(
+    pizzaToppingsQuery: gql.PizzaToppingsQuery,
+): CountedPizzaTopping[] {
+    const toppings = pizzaToppingsQuery.pizzaToppings.nodes
+        .map(pizza => pizza.toppings)
+        .flat();
 
-    const counts = toppings.reduce((acc, topping) => {
-        const existingTopping = acc[ topping.id ];
+    const countedPizzaToppings = toppings.reduce<ReduceToppingsAccumulator>(
+        (acc, topping) => {
+            const existingTopping = acc[ topping.id ];
 
-        if (existingTopping) {
-            existingTopping.count += 1;
-        } else {
-            acc[ topping.id ] = {
-                id:    topping.id,
-                name:  topping.name,
-                count: 1,
-            };
-        }
+            if (existingTopping) {
+                existingTopping.count += 1;
+            } else {
+                acc[ topping.id ] = {
+                    id:    topping.id,
+                    name:  topping.name,
+                    count: 1,
+                };
+            }
 
-        return acc;
-    }, {});
+            return acc;
+        },
+        {},
+    );
 
-    const sortedToppings = Object.values(counts).sort(
+    const sortedToppings = Object.values(countedPizzaToppings).sort(
         (a, b) => b.count - a.count,
     );
 
     return sortedToppings;
+}
+
+/* Types */
+interface ReduceToppingsAccumulator {
+    [id: string]: CountedPizzaTopping;
+}
+interface CountedPizzaTopping {
+    id: string;
+    name: string;
+    count: number;
 }

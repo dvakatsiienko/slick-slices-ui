@@ -22,6 +22,8 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
         'gatsby-plugin-tsconfig-paths',
+        'gatsby-plugin-graphql-codegen',
+        // 'gatsby-plugin-typegen',
         {
             resolve: 'gatsby-source-sanity',
             options: {
