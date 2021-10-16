@@ -4,14 +4,14 @@ import { Pizza } from './Pizza';
 /* Instruments */
 import * as gql from '@/graphql';
 
-import { pizzaList as pizzaListStyles } from './styles.module.scss';
+import * as styles from './styles.module.scss';
 
 export const PizzaList: React.FC<PizzaListProps> = props => {
     const pizzaListJSX = props.pizzas.allSanityPizza.nodes.map(pizza => {
         return <Pizza key = { pizza.id } pizza = { pizza } />;
     });
 
-    return <div className = { pizzaListStyles }>{pizzaListJSX}</div>;
+    return <div className = { styles.pizzaList }>{pizzaListJSX}</div>;
 };
 
 /* Types */

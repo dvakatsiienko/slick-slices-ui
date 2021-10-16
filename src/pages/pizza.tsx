@@ -2,7 +2,7 @@
 import { graphql, PageProps } from 'gatsby';
 
 /* Components */
-import { PizzaList, ToppingsFilter, SEO } from '../components';
+import { SEO, ToppingsFilter, PizzaList } from '@/components';
 
 /* Instruments */
 import * as gql from '@/graphql';
@@ -24,7 +24,7 @@ const PizzaPage: PizzaPageProps = props => {
 };
 
 export const query = graphql`
-    query AllSanityPizza($toppingRegex: String) {
+    query AllSanityPizzaFilter($toppingRegex: String) {
         allSanityPizza(
             filter: {
                 toppings: { elemMatch: { name: { regex: $toppingRegex } } }
@@ -39,6 +39,7 @@ export const query = graphql`
     fragment SanityPizzaFragment on SanityPizza {
         id
         name
+        price
         slug {
             current
         }
@@ -56,7 +57,7 @@ export const query = graphql`
 
 /* Types */
 type PizzaPageProps = React.FC<
-    PageProps<gql.AllSanityPizzaQuery, PizzasPageContext>
+    PageProps<gql.AllSanityPizzaFilterQuery, PizzasPageContext>
 >;
 interface PizzasPageContext {
     topping: string;

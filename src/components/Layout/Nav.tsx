@@ -27,7 +27,7 @@ export const Nav: React.FC = () => {
                 </li>
 
                 <li>
-                    <Link to = '/order'>Orders Ahead!</Link>
+                    <Link to = '/order-pizza'>Orders Ahead!</Link>
                 </li>
             </ul>
         </nav>

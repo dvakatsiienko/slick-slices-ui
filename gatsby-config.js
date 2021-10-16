@@ -33,15 +33,6 @@ module.exports = {
             resolve: 'gatsby-plugin-root-import',
             options: rootDirsConfig,
         },
-        // {
-        //     resolve: 'gatsby-plugin-typegen',
-        //     options: {
-        //         outputPath:       'src/graphql/index.ts',
-        //         includeResolvers: true,
-        //         namespace:        'gql',
-        //     },
-        // },
-
         {
             resolve: 'gatsby-source-sanity',
             options: {
@@ -53,3 +44,5 @@ module.exports = {
         },
     ],
 };
+
+console.log('test');

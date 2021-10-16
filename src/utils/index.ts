@@ -1,4 +1,4 @@
-export * from './calculatePizzaPrice';
 export * from './formatMoney';
-export * from './usePizza';
+export * from './calculatePizzaPrice';
 export * from './calculateOrderTotal';
+export * from './attachNamesAndPrices';

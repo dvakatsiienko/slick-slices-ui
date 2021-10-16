@@ -6083,19 +6083,19 @@ export type SlicemasterFragment = { __typename?: 'SanityPerson', _id?: string | 
 
 export type HotSliceFragment = { __typename?: 'SanityPizza', _id?: string | null | undefined, price?: number | null | undefined, name?: string | null | undefined, slug?: { __typename?: 'SanitySlug', _key?: string | null | undefined, _type?: string | null | undefined, current?: string | null | undefined } | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', url?: string | null | undefined, metadata?: { __typename?: 'SanityImageMetadata', lqip?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined };
 
-export type AllSanityPizza2QueryVariables = Exact<{ [key: string]: never; }>;
+export type AllSanityPizzaQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllSanityPizza2Query = { __typename?: 'Query', pizzas: { __typename?: 'SanityPizzaConnection', nodes: Array<{ __typename?: 'SanityPizza', id: string, name?: string | null | undefined, price?: number | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined }> } };
+export type AllSanityPizzaQuery = { __typename?: 'Query', allSanityPizza: { __typename?: 'SanityPizzaConnection', nodes: Array<{ __typename?: 'SanityPizza', id: string, name?: string | null | undefined, price?: number | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, toppings?: Array<{ __typename?: 'SanityTopping', id: string, name?: string | null | undefined } | null | undefined> | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined }> } };
 
-export type AllSanityPizzaQueryVariables = Exact<{
+export type AllSanityPizzaFilterQueryVariables = Exact<{
   toppingRegex?: Maybe<Scalars['String']>;
 }>;
 
 
-export type AllSanityPizzaQuery = { __typename?: 'Query', allSanityPizza: { __typename?: 'SanityPizzaConnection', nodes: Array<{ __typename?: 'SanityPizza', id: string, name?: string | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, toppings?: Array<{ __typename?: 'SanityTopping', id: string, name?: string | null | undefined } | null | undefined> | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined }> } };
+export type AllSanityPizzaFilterQuery = { __typename?: 'Query', allSanityPizza: { __typename?: 'SanityPizzaConnection', nodes: Array<{ __typename?: 'SanityPizza', id: string, name?: string | null | undefined, price?: number | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, toppings?: Array<{ __typename?: 'SanityTopping', id: string, name?: string | null | undefined } | null | undefined> | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined }> } };
 
-export type SanityPizzaFragment = { __typename?: 'SanityPizza', id: string, name?: string | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, toppings?: Array<{ __typename?: 'SanityTopping', id: string, name?: string | null | undefined } | null | undefined> | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined };
+export type SanityPizzaFragment = { __typename?: 'SanityPizza', id: string, name?: string | null | undefined, price?: number | null | undefined, slug?: { __typename?: 'SanitySlug', current?: string | null | undefined } | null | undefined, toppings?: Array<{ __typename?: 'SanityTopping', id: string, name?: string | null | undefined } | null | undefined> | null | undefined, image?: { __typename?: 'SanityImage', asset?: { __typename?: 'SanityImageAsset', gatsbyImageData: any } | null | undefined } | null | undefined };
 
 export type AllSanityPerson3QueryVariables = Exact<{
   skip?: Maybe<Scalars['Int']>;

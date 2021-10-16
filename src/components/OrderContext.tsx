@@ -1,13 +1,18 @@
 /* Core */
 import { useState, createContext } from 'react';
 
-export const OrderContext = createContext([]);
+/* Instruments */
+import { OrderedPizza } from '@/features/order-pizza/types';
+
+export const OrderContext = createContext<
+    [OrderedPizza[], React.Dispatch<React.SetStateAction<OrderedPizza[]>>]
+>([ null, null ]);
 
 export const OrderProvider: React.FC = props => {
-    const [ order, setOrder ] = useState([]);
+    const [ orderedPizzas, setOrderedPizzas ] = useState<OrderedPizza[]>([]);
 
     return (
-        <OrderContext.Provider value = { [ order, setOrder ] }>
+        <OrderContext.Provider value = { [ orderedPizzas, setOrderedPizzas ] }>
             {props.children}
         </OrderContext.Provider>
     );
