@@ -1,14 +1,19 @@
 schema: 'http://localhost:8000/___graphql'
+
 documents:
-    'src/graphql/**/*.gql'
-    # - ./src/**/*.{ts,tsx}
-    # - ./node_modules/gatsby*/!(node_modules)/**/*.js
+    - ./src/**/*.{ts,tsx}
+    - ./node_modules/gatsby*/!(node_modules)/**/*.js
+    - ./gatsby-node.js
+    # - ./src/graphql/**/*.gql
+
+config:
+    dedupeOperationSuffix: true
 
 generates:
-    src/graphql/index.tsx:
+    src/graphql/index.ts:
         plugins:
             - typescript
             - typescript-operations
-hooks:
-    afterAllFileWrite:
-        - prettier-eslint --write
+# hooks:
+#     afterAllFileWrite:
+#         - prettier-eslint --write

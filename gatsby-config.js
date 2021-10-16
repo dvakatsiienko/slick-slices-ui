@@ -3,16 +3,24 @@
 
 /* Core */
 const dotenv = require('dotenv');
+const fs = require('fs');
+const path = require('path');
 
 dotenv.config({ path: '.env' });
 dotenv.config({ path: '.env.local' });
 
+const srcDirs = fs.readdirSync(path.resolve(__dirname, 'src'));
+const rootDirsConfig = {};
+
+srcDirs.forEach(srcDir => {
+    rootDirsConfig[ `@/${srcDir}` ] = path.resolve(__dirname, 'src', srcDir);
+});
+
 module.exports = {
     siteMetadata: {
         title:       'Slicks Slices',
-        siteUrl:     'https://gatsby.pizza',
+        siteUrl:     'https://slickslices.gtsb.io/',
         description: 'The best pizza in Hamilton!',
-        twitter:     '@slicksSlices',
     },
     plugins: [
         'gatsby-plugin-pnpm',
@@ -21,9 +29,19 @@ module.exports = {
         'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
-        'gatsby-plugin-tsconfig-paths',
-        'gatsby-plugin-graphql-codegen',
-        // 'gatsby-plugin-typegen',
+        {
+            resolve: 'gatsby-plugin-root-import',
+            options: rootDirsConfig,
+        },
+        // {
+        //     resolve: 'gatsby-plugin-typegen',
+        //     options: {
+        //         outputPath:       'src/graphql/index.ts',
+        //         includeResolvers: true,
+        //         namespace:        'gql',
+        //     },
+        // },
+
         {
             resolve: 'gatsby-source-sanity',
             options: {

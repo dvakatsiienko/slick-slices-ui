@@ -10,7 +10,6 @@ export const SEO: React.FC<SEOProps> = props => {
                     siteMetadata {
                         title
                         description
-                        twitter
                     }
                 }
             }

@@ -5,7 +5,7 @@ import { graphql, PageProps } from 'gatsby';
 import { PizzaList, ToppingsFilter, SEO } from '../components';
 
 /* Instruments */
-import * as gql from '../../graphql-types';
+import * as gql from '@/graphql';
 
 const PizzaPage: PizzaPageProps = props => {
     const { topping } = props.pageContext;
@@ -14,17 +14,17 @@ const PizzaPage: PizzaPageProps = props => {
 
     return (
         <>
-            <SEO title = { title } />
+            <SEO title={title} />
 
             <ToppingsFilter />
 
-            <PizzaList pizzas = { props.data } />
+            <PizzaList pizzas={props.data} />
         </>
     );
 };
 
 export const query = graphql`
-    query allSanityPizza($toppingRegex: String) {
+    query AllSanityPizza($toppingRegex: String) {
         allSanityPizza(
             filter: {
                 toppings: { elemMatch: { name: { regex: $toppingRegex } } }

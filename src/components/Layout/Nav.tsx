@@ -9,7 +9,7 @@ export const Nav: React.FC = () => {
         <nav className = 'nav'>
             <ul>
                 <li>
-                    <Link to = '/pizzas'>Pizza Menu</Link>
+                    <Link to = '/pizza'>Pizza Menu</Link>
                 </li>
 
                 <li>

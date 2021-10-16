@@ -2,7 +2,7 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
 /* Instruments */
-import * as gql from '@/../graphql-types';
+import '@/graphql';
 
 export const usePizzaToppingsQuery = () => {
     const pizzaToppingsQuery = useStaticQuery<gql.PizzaToppingsQuery>(

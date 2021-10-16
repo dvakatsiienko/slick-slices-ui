@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import * as styles from './styles.module.scss';
 
 /* Instruments */
-import * as gql from '@/../graphql-types';
+import '@/graphql';
 import { usePizzaToppingsQuery } from './usePizzaToppingsQuery';
 
 export const ToppingsFilter: React.FC = () => {
@@ -26,7 +26,7 @@ export const ToppingsFilter: React.FC = () => {
 
     return (
         <div className = { styles.toppingsFilter }>
-            <Link to = '/pizzas'>All toppings ({toppingsWithCounts.length})</Link>
+            <Link to = '/pizza'>All toppings ({toppingsWithCounts.length})</Link>
             {toppingLinks}
         </div>
     );
