@@ -14,11 +14,11 @@ const PizzaPage: PizzaPageProps = props => {
 
     return (
         <>
-            <SEO title={title} />
+            <SEO title = { title } />
 
             <ToppingsFilter />
 
-            <PizzaList pizzas={props.data} />
+            <PizzaList pizzas = { props.data } />
         </>
     );
 };

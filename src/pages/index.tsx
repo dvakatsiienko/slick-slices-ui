@@ -10,24 +10,24 @@ import * as gql from '@/graphql';
 
 const HomePage: HomePageProps = props => {
     return (
-        <div className="center">
-            <SEO title="Slick Slices" />
+        <div className = 'center'>
+            <SEO title = 'Slick Slices' />
 
             <h1>The Best Pizza Downtown 🍕</h1>
             <p>Open to 11am Every Single Day</p>
 
-            <section className="home-layout">
+            <section className = 'home-layout'>
                 <HomePageSubgrid
-                    cta="Standing by, ready to slice you up!"
-                    items={props.data.sanityStoreSettings.slicemaster}
-                    noDataMessage="No one is working right now!"
-                    title="Slicemasters On"
+                    cta = 'Standing by, ready to slice you up!'
+                    items = { props.data.sanityStoreSettings.slicemaster }
+                    noDataMessage = 'No one is working right now!'
+                    title = 'Slicemasters On'
                 />
                 <HomePageSubgrid
-                    cta="Come on by, buy the slice!"
-                    items={props.data.sanityStoreSettings.hotSlices}
-                    noDataMessage="Nothin' in the Case."
-                    title="Hot Slices"
+                    cta = 'Come on by, buy the slice!'
+                    items = { props.data.sanityStoreSettings.hotSlices }
+                    noDataMessage = "Nothin' in the Case."
+                    title = 'Hot Slices'
                 />
             </section>
         </div>

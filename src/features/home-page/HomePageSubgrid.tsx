@@ -10,7 +10,7 @@ import { SubgridList } from './SubgridList';
 import * as gql from '@/graphql';
 
 export const HomePageSubgrid: React.FC<HomePageSubgridProps> = props => {
-    const [isFetched, setIsFetched] = useState(false);
+    const [ isFetched, setIsFetched ] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -23,14 +23,14 @@ export const HomePageSubgrid: React.FC<HomePageSubgridProps> = props => {
 
     return (
         <div>
-            <h2 className="center">
-                <span className="mark tilt">{props.title}</span>
+            <h2 className = 'center'>
+                <span className = 'mark tilt'>{props.title}</span>
             </h2>
             <p>{props.cta}</p>
 
-            {!isFetched && <SkeletonGrid count={4} />}
+            {!isFetched && <SkeletonGrid count = { 4 } />}
             {items && !items?.length && <p>{props.noDataMessage}</p>}
-            {isFetched && items?.length && <SubgridList items={items} />}
+            {isFetched && items?.length && <SubgridList items = { items } />}
         </div>
     );
 };
