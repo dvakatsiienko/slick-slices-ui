@@ -1,5 +1,5 @@
 /* Core */
-import { graphql }                       from 'gatsby';
+import { graphql } from 'gatsby';
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image';
 
 /* Components */
@@ -27,7 +27,7 @@ export const SlicemasterPage: React.FC = props => {
 };
 
 export const query = graphql`
-    query($slug: String!) {
+    query SanityPerson2($slug: String!) {
         person: sanityPerson(slug: { current: { eq: $slug } }) {
             id
             name

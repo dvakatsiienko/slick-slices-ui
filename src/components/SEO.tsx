@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 export const SEO: React.FC<SEOProps> = props => {
     const { site } = useStaticQuery(
         graphql`
-            query {
+            query Site {
                 site {
                     siteMetadata {
                         title

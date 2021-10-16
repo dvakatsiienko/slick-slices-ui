@@ -1,5 +1,5 @@
 /* Core */
-import { graphql, Link }         from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 /* Components */
@@ -45,7 +45,7 @@ const SlicemasterPage = props => {
 };
 
 export const query = graphql`
-    query($skip: Int = 0, $pageSize: Int = 4) {
+    query AllSanityPerson3($skip: Int = 0, $pageSize: Int = 4) {
         slicemasters: allSanityPerson(skip: $skip, limit: $pageSize) {
             totalCount
             nodes {

@@ -41,7 +41,7 @@ const BeersPage: React.FC<PageProps> = props => {
 };
 
 export const query = graphql`
-    query {
+    query AllBeer {
         beers: allBeer {
             nodes {
                 id

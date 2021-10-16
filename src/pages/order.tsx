@@ -147,7 +147,7 @@ interface FormShape {
 }
 
 export const query = graphql`
-    query {
+    query AllSanityPizza2 {
         pizzas: allSanityPizza {
             nodes {
                 id

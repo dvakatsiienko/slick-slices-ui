@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 /* Core */
 const path = require('path');
 const fetch = require('isomorphic-fetch');
@@ -21,7 +24,7 @@ async function turnPizzasIntoPages(params) {
     const SinglePizzaPage = path.resolve('./src/templates/SinglePizzaPage.tsx');
 
     const result = await graphql(`
-        query {
+        query AllSanityPizzaGatsbyNode {
             pizzas: allSanityPizza {
                 nodes {
                     name
@@ -52,7 +55,7 @@ async function turnToppingsIntoPages(params) {
     const toppingPage = path.resolve('./src/pages/pizza.tsx');
 
     const result = await graphql(`
-        query AllSanityTopping {
+        query AllSanityToppingGatsbyNode {
             allSanityTopping {
                 nodes {
                     id
@@ -112,7 +115,7 @@ async function turnSlicemastersIntoPages(params) {
     const { graphql, actions } = params;
 
     const { data } = await graphql(`
-        query {
+        query AllSanityPersonGatsbyNode {
             slicemasters: allSanityPerson {
                 totalCount
                 nodes {
