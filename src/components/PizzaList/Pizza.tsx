@@ -23,6 +23,7 @@ export const Pizza: React.FC<PizzaProps> = props => {
                 </Link>
             </h2>
             <p>{toppingsJSX}</p>
+
             <GatsbyImage alt = { props.pizza.name } image = { image } />
         </div>
     );

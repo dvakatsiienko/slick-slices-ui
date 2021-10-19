@@ -3,7 +3,6 @@ import { Pizza } from './Pizza';
 
 /* Instruments */
 import * as gql from '@/graphql';
-
 import * as styles from './styles.module.scss';
 
 export const PizzaList: React.FC<PizzaListProps> = props => {

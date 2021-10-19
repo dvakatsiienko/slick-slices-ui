@@ -1,8 +1,6 @@
-/* Core */
-import { graphql, PageProps } from 'gatsby';
-
 /* Components */
 import { SEO } from '@/components';
+import { graphql, PageProps } from 'gatsby';
 
 const BeersPage: React.FC<PageProps> = props => {
     const beersJSX = props.data.beers.nodes.map(beer => {

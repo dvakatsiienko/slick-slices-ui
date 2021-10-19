@@ -39,6 +39,7 @@ const SlicemasterPage = props => {
                 skip = { props.pageContext.skip }
                 totalCount = { slicemasters.totalCount }
             />
+
             <div className = 'slicemasters-layout'>{slicemastersJSX}</div>
         </>
     );

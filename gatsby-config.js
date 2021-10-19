@@ -24,8 +24,8 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-pnpm',
-        'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
@@ -44,5 +44,3 @@ module.exports = {
         },
     ],
 };
-
-console.log('test');
