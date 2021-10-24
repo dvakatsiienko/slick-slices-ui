@@ -1,15 +1,20 @@
 /* Core */
-import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { graphql, PageProps, Link } from 'gatsby';
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 
 /* Components */
-import { Pagination, SEO } from '../components';
+import { Pagination, SEO } from '@/components';
 
-const SlicemasterPage = props => {
+/* Instruments */
+import * as gql from '@/graphql';
+
+const SlicemastersPage: SlicemastersPageProps = props => {
     const { slicemasters } = props.data;
 
     const slicemastersJSX = slicemasters.nodes.map(slicemaster => {
-        const image = getImage(slicemaster.image.asset);
+        const image = getImage(
+            slicemaster.image.asset as unknown as ImageDataLike,
+        );
 
         return (
             <div className = 'slicemaster' key = { slicemaster.id }>
@@ -18,7 +23,7 @@ const SlicemasterPage = props => {
                         <span className = 'mark'>{slicemaster.name}</span>
                     </h2>
                 </Link>
-                <GatsbyImage alt = { slicemasters.name ?? '' } image = { image } />
+                <GatsbyImage alt = { slicemaster.name } image = { image } />
                 <p className = 'description'>{slicemaster.description}</p>
             </div>
         );
@@ -66,4 +71,14 @@ export const query = graphql`
     }
 `;
 
-export default SlicemasterPage;
+/* Types */
+type SlicemastersPageProps = React.FC<
+    PageProps<gql.AllSanityPerson3Query, SlicemastersPageContext>
+>;
+interface SlicemastersPageContext {
+    skip: number;
+    currentPage: number;
+    pageSize: number;
+}
+
+export default SlicemastersPage;
