@@ -157,8 +157,9 @@ async function turnSlicemastersIntoPages(params) {
     });
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-    actions.setWebpackConfig({
+/* Extending webpack config */
+exports.onCreateWebpackConfig = api => {
+    api.actions.setWebpackConfig({
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, 'src'),
