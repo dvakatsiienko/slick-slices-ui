@@ -34,6 +34,7 @@
         "react-dom": "17.0.2",
         "react-helmet": "6.1.0",
         "react-hook-form": "7.19.5",
+        "graphql": "15.7.2",
         "sass": "1.43.4",
         "waait": "1.0.5",
         "yup": "0.32.11"
@@ -48,7 +49,6 @@
         "eslint": "8.2.0",
         "eslint-config-dva": "0.0.16",
         "gatsby-plugin-gatsby-cloud": "4.2.0",
-        "graphql": "15.7.2",
         "husky": "7.0.4",
         "npm-run-all": "4.1.5",
         "prettier": "2.4.1",
