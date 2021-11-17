@@ -16,7 +16,6 @@ specifiers:
   gatsby-plugin-image: 2.2.0
   gatsby-plugin-pnpm: 1.2.9
   gatsby-plugin-react-helmet: 5.2.0
-  gatsby-plugin-root-import: 2.0.8
   gatsby-plugin-sass: 5.2.0
   gatsby-plugin-sharp: 4.2.0
   gatsby-source-sanity: 7.2.0
@@ -54,7 +53,6 @@ dependencies:
   gatsby-plugin-image: 2.2.0_68eec82b7b58afb4117dee1aa8f25e27
   gatsby-plugin-pnpm: 1.2.9_gatsby@4.2.0
   gatsby-plugin-react-helmet: 5.2.0_gatsby@4.2.0+react-helmet@6.1.0
-  gatsby-plugin-root-import: 2.0.8_gatsby@4.2.0
   gatsby-plugin-sass: 5.2.0_gatsby@4.2.0+sass@1.43.4
   gatsby-plugin-sharp: 4.2.0_gatsby@4.2.0
   gatsby-source-sanity: 7.2.0_a7db2fe35e98b8edc7ef2bd503fef997
@@ -7375,14 +7373,6 @@ packages:
       '@babel/runtime': 7.16.3
       gatsby: 4.2.0_587beae5e149c20cb8b57fb85872025f
       react-helmet: 6.1.0_react@17.0.2
-    dev: false
-
-  /gatsby-plugin-root-import/2.0.8_gatsby@4.2.0:
-    resolution: {integrity: sha512-y07q3c+Pz1qoW3XdkAvl5PbO2+gc0GhcfZYq+Msw2JBe5M+FSByhQVDhZYCVMRVZz0qx6L4qr3w3i04/k4S2HA==}
-    peerDependencies:
-      gatsby: ^2 || ^3 || ^4
-    dependencies:
-      gatsby: 4.2.0_587beae5e149c20cb8b57fb85872025f
     dev: false
 
   /gatsby-plugin-sass/5.2.0_gatsby@4.2.0+sass@1.43.4:
