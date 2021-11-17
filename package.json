@@ -48,6 +48,7 @@
         "@types/react-helmet": "6.1.4",
         "eslint": "8.2.0",
         "eslint-config-dva": "0.0.16",
+        "gatsby-plugin-gatsby-cloud": "4.2.0",
         "graphql": "16.0.1",
         "husky": "7.0.4",
         "npm-run-all": "4.1.5",
