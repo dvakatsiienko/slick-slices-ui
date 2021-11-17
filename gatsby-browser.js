@@ -1,5 +1,4 @@
 /* Core */
-import React from 'react';
 import { Layout, OrderProvider } from './src/components';
 
 /* Instruments */
