@@ -44,4 +44,5 @@ module.exports = {
             },
         },
     ],
+    jsxRuntime: 'automatic',
 };
