@@ -30,10 +30,10 @@ module.exports = {
         'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
-        {
-            resolve: 'gatsby-plugin-root-import',
-            options: rootDirsConfig,
-        },
+        // {
+        //     resolve: 'gatsby-plugin-root-import',
+        //     options: rootDirsConfig,
+        // },
         {
             resolve: 'gatsby-source-sanity',
             options: {
